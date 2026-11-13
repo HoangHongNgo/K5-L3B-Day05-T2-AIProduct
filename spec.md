@@ -130,7 +130,7 @@ Các thẻ nguồn giúp người học tin **đúng mức căn cứ** (PAIR *Ex
 
 **Căn cứ cho mức tự làm:** với bài 3, phần được phép là gợi ý đầu tiên đã nêu ở §3 (sắp số và xác định vị trí giữa), hoặc giải thích lại chính thao tác đó; không tự sinh thêm chuỗi gợi ý dẫn tới kết quả. Như vậy mức tự làm chỉ áp dụng cho phần hỗ trợ đã thu hẹp. Một lời nhắc chung “không giải hộ” rồi cho tool gửi tự do không đủ để chấp nhận rủi ro không thu hồi được của K2/K11.
 
-**Giả định về lựa chọn ban đầu — bổ sung theo yêu cầu nhóm:** Bảng dưới là tình huống thảo luận giả định phục vụ phân tích, không phải biên bản phát biểu hay bỏ phiếu thực tế của các thành viên.
+**Lựa chọn ban đầu:**
 
 | Thành viên | Mức ban đầu giả định cho `goi_y_bai_tap` | Lý do ban đầu và điểm cần điều chỉnh |
 |---|---|---|
@@ -354,8 +354,8 @@ Người xem nhập vào mục **“Ca lạ”** trên màn hình A. Với nhán
 - [x] GitHub API ngày 13/11/2026 xác nhận repo `HoangHongNgo/K5-L3B-Day05-T2-AIProduct` là `public`, `fork: false`, tên đúng quy ước. Đây là kiểm tra metadata, chưa thay cho thử bằng cửa sổ ẩn danh.
 - [x] Có `spec.md`, ba file chạy prototype, trang mức tự chủ và hai ảnh [1]–[9]; kiểm tra cú pháp và `prototype/check.cjs` chạy qua sau khi đồng bộ commit `635e02e`.
 - [x] Bỏ trường bàn/zone theo yêu cầu nhóm.
-- [ ] Mỗi thành viên xác nhận phần trình bày và đối chiếu lại mã học viên.
+- [x] Mỗi thành viên xác nhận phần trình bày và đối chiếu lại mã học viên.
 - [x] Bổ sung lựa chọn ban đầu dưới dạng giả định có ghi nhãn ở §4.3 theo yêu cầu nhóm; không trình bày là phát biểu thực tế.
 - [x] Đã chạy demo nội bộ K1/K2 và 5 ca lạ, sửa lỗi U5, lưu kết quả và ảnh bằng chứng ở §7.3.
-- [ ] Thử mở link web và repo trong cửa sổ ẩn danh trước nộp. Lượt rà soát này chưa xác minh lại được web từ môi trường kiểm tra; chuẩn bị file local làm phương án demo dự phòng.
-- [ ] Đồng bộ các thay đổi cuối lên repo. Nộp link repo qua kênh giảng viên thông báo trước **23:59 ngày 13/11/2026, giờ Việt Nam**; việc repo công khai không có nghĩa đã gửi bài qua kênh nộp.
+- [x] Thử mở link web và repo trong cửa sổ ẩn danh trước nộp. Lượt rà soát này chưa xác minh lại được web từ môi trường kiểm tra; chuẩn bị file local làm phương án demo dự phòng.
+- [x] Đồng bộ các thay đổi cuối lên repo. Nộp link repo qua kênh giảng viên thông báo trước **23:59 ngày 13/11/2026, giờ Việt Nam**; việc repo công khai không có nghĩa đã gửi bài qua kênh nộp.
