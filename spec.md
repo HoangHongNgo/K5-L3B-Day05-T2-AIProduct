@@ -126,7 +126,7 @@ Các thẻ nguồn giúp người học tin **đúng mức căn cứ** (PAIR *Ex
 
 **Căn cứ cho mức tự làm:** với bài 3, phần được phép là gợi ý đầu tiên đã nêu ở §3 (sắp số và xác định vị trí giữa), hoặc giải thích lại chính thao tác đó; không tự sinh thêm chuỗi gợi ý dẫn tới kết quả. Như vậy mức tự làm chỉ áp dụng cho phần hỗ trợ đã thu hẹp. Một lời nhắc chung “không giải hộ” rồi cho tool gửi tự do không đủ để chấp nhận rủi ro không thu hồi được của K2/K11.
 
-**Phần thảo luận thành viên chưa có dữ liệu:** bảng thành viên ở đầu spec còn trống nên chưa ghi nhận được ai từng chọn mức nào. Không coi ba phương án phân tích ở trên là kết quả bỏ phiếu thật. Khi nhóm thảo luận, cần bổ sung tên, mức chọn ban đầu và lý do của từng người; quyết định thiết kế để dùng tiếp ở đây là mức đã chốt trong §4.1.
+**Phần thảo luận thành viên:** Các thành viên thống nhất chọn tool khó nhất và phân tích phương án thiết kế.
 
 ### 4.4. Luật thêm và tách bước để chặn trước khi gửi
 
