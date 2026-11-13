@@ -1,12 +1,13 @@
 # Bài nộp LAB5 — T2 Giáo dục · Nhóm [tên nhóm]
 
-**Lớp:** [L3A/L3B] · **Bàn / zone:** [điền] · **Track:** T2
+**Lớp:** L3B · **Bàn / zone:** [điền] · **Track:** T2
 
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
 | [Thành viên 1] | [Mã học viên] | [Việc cụ thể] |
 | [Thành viên 2] | [Mã học viên] | [Việc cụ thể] |
 | [Thành viên 3] | [Mã học viên] | [Việc cụ thể] |
+| Đào Đức Sơn | 2A202604105  | §4 (S4.1, S4.2) |
 
 ## §1. Lát cắt & phạm vi
 
