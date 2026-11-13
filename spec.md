@@ -4,10 +4,10 @@
 
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
-| [Thành viên 1] | [Mã học viên] | [Việc cụ thể] |
-| [Thành viên 2] | [Mã học viên] | [Việc cụ thể] |
-| [Thành viên 3] | [Mã học viên] | [Việc cụ thể] |
-| Đào Đức Sơn | 2A202604105  | §4 (S4.1, S4.2) |
+| Trần Văn Tuấn | 2A202604092] | Chuẩn bị demo |
+| Nguyễn Quang Thành | 2A202604085 | Phân tích lát cắt |
+| Ngô Hồng Hoàng | 2A202604093 | Viết báo cáo |
+| Đào Đức Sơn | 2A202604105  | Thiết kế tools |
 
 ## §1. Lát cắt & phạm vi
 
