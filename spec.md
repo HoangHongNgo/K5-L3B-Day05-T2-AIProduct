@@ -73,7 +73,7 @@ K11 là biến thể của K2 và dùng cùng rào chặn, nên không chọn th
 
 **AI nói nguyên văn:** “Bài 3 đang mở đến 23:59 ngày 13/11/2026, nên mình không đưa hay xác nhận đáp số, cũng không viết nhận xét hộ em. Bước đầu: hãy xếp 8 số lương theo thứ tự và tìm hai vị trí giữa, như cách tìm trung vị ở §3.2. Em đang kẹt ở bước nào?”
 
-- **Người học thấy:** thẻ **“Bài 3 · đang mở · hạn 13/11/2026 23:59”** từ trang khoá học; nhãn **“Chỉ gợi ý bước đầu”** và liên kết **“Buổi 3 · §3.2, §3.5”**. Không có đáp số hoặc nhận xét mẫu. Các nút: **“Hỏi về bước này”**, **“Gợi ý chưa giúp”**, **“Hỏi TA”**. Trước khi chuyển TA, học viên được xem câu hỏi sẽ gửi.
+- **Người học thấy:** thẻ **“Bài 3 · đang mở · hạn 13/11/2026 23:59”** từ trang khoá học; nhãn **“Chỉ gợi ý bước đầu”** và liên kết **“Buổi 3 · §3.2, §3.5”**. Không có đáp số hoặc nhận xét mẫu. Các điều khiển: ô **“Hỏi tiếp về cách làm”**, **“Gợi ý chưa giúp”**, **“Xin xác nhận kết quả”**, **“Hỏi TA”**. Trước khi chuyển TA, học viên được xem câu hỏi sẽ gửi.
 - **Ai được báo, khi nào:** yêu cầu xin đáp số **không tự báo TA**. Học viên có thể hỏi tiếp hoặc bấm “Hỏi TA”, xem/sửa bản câu hỏi và xác nhận gửi; chỉ lúc xác nhận mới gọi `chuyen_TA` với câu hỏi và bước đã thử. Chỉ sau khi tool thành công mới hiện “Đã chuyển” cùng giờ trả lời mà tool báo. Ngoài giờ trực 08:00–22:00, giao diện nói rõ phải chờ, không hứa kịp hạn nộp. Nếu tool lỗi, TA chưa nhận được gì. Nếu học viên không làm gì, chỉ gợi ý đầu tiên còn trên màn hình; hệ thống không tự gửi thêm lời giải.
 - **Vì sao chọn cách này:** chọn **trả lời có giới hạn bằng bước đầu**. Học viên đã nói rõ là bài 3 nên hỏi lại tên bài chỉ gây chậm. Dừng hoàn toàn để chờ TA làm mất thời gian trước hạn nộp. Đưa hoặc xác nhận kết quả qua `goi_y_bai_tap` bị loại: §3.5 có đủ số liệu để giải trọn bài, và lời giải đã thấy thì không thể thu hồi.
 - **Nếu AI đã lộ đáp số:** đây là **lỗi hệ thống bỏ qua ngữ cảnh đã có**: dữ liệu B ghi rõ bài 3 đang mở, nhưng trợ lý vẫn đưa nội dung bị cấm. Không gọi đây là lỗi ngữ cảnh thuần tuý (hệ thống làm đúng thiết kế nhưng không hợp tình huống), cũng không quy lỗi cho học viên vì đã xin đáp số. Trợ lý nói: **“Mình đã đưa quá mức cho bài 3 đang mở; xin lỗi em. Đừng dùng phần đáp số hoặc nhận xét đó làm bài nộp. Mình đang chuyển sự cố cho TA.”** Câu cũ mang nhãn **“Không phù hợp với bài đang mở”**. Hệ thống gọi `chuyen_TA` ngay với câu đã gửi, thời điểm và trạng thái bài; chỉ hiện “Đã chuyển” khi tool thành công. Không thể lấy lại nội dung học viên đã thấy. Vì vậy, trước khi `goi_y_bai_tap` gửi, thiết kế phải kiểm tra bài còn mở và chặn đáp số, xác nhận đáp số, nhận xét hoàn chỉnh.
@@ -151,9 +151,11 @@ Các luật này là yêu cầu cần thể hiện ở prototype §5. Chỉ vi�
 
 ### 5.1. Phạm vi, công cụ và tình trạng bằng chứng
 
-**Link deploy:** [https://hoc-dem-t2-aiproduct.debonair-sprint.workers.dev](https://hoc-dem-t2-aiproduct.debonair-sprint.workers.dev).
+**Link deploy:** [https://hoc-dem-t2-aiproduct.towering-petunia.workers.dev](https://hoc-dem-t2-aiproduct.towering-petunia.workers.dev).
 
 **Trạng thái triển khai:** đã deploy bằng Cloudflare Workers Static Assets ngày 13/11/2026 và kiểm tra mở được prototype T2 trên trình duyệt. Đây là tài khoản triển khai tạm: chủ sở hữu cần hoàn tất nhận tài khoản qua link claim riêng trong vòng 60 phút từ khi tạo để giữ web lâu dài; chưa coi đây là hosting vĩnh viễn. Nội dung và hành động trong demo vẫn là mock. Link claim không đưa vào repo.
+
+**Kịch bản chỉnh sửa đã được duyệt:** giữ thứ tự **K1 → K2**. Mở đầu tại trang khoá học, buổi 3: học viên thấy tài liệu ở bên trái và trợ lý AI bên phải, mốc 22:30, bài 3 còn hạn đến 23:59 và TA đã hết giờ trực. Công cụ chọn ca/giả lập lỗi/đổi vai được thu gọn. K1 mở mặc định ở §3.3, sau câu hỏi mới đánh dấu câu nghi sai; nút “Tiếp tục: K2 · Bài đang mở” đưa sang đề bài §3.5. K2 có ô hỏi tiếp và nút “Xin xác nhận kết quả”; yêu cầu chỉ xác nhận đúng/sai vẫn bị giới hạn như xin đáp số. Ca FAQ K10 nằm trong phần thu gọn riêng trên màn hình TA.
 
 **Chọn prototype hai màn hình:** (A) trợ lý trên trang khoá học cho học viên; (B) hàng chờ kiểm tra và duyệt FAQ cho TA. **K1 là ca demo chính**, vì cùng một luồng thể hiện được nguồn sai, chuyển người và chặn phát tán cho cả lớp. K2 dùng lại màn hình A để chứng minh giới hạn hỗ trợ bài đang mở. Không dựng thêm màn hình đăng nhập hoặc quản trị khoá học.
 
@@ -167,7 +169,7 @@ Các luật này là yêu cầu cần thể hiện ở prototype §5. Chỉ vi�
 
 ![Ảnh 1 — Học viên, ca K1, vị trí 1–5](prototype/01-hoc-vien.png)
 
-Khi chọn K2 trong bộ ca demo, vẫn dùng màn hình A: thay [2] bằng **“Chỉ gợi ý bước đầu”**; [3] hiện thẻ **“Bài 3 · đang mở · hạn 13/11/2026 23:59 — Trang khoá học”**, liên kết §3.2/§3.5 và câu trả lời K2 nguyên văn ở §3. Vị trí [5] có **“Hỏi về bước này”**, **“Gợi ý chưa giúp”**, **“Hỏi TA”**. Bản xem trước câu hỏi TA mở ngay trong màn hình, có ô sửa, nút **“Huỷ”** và **“Xác nhận gửi”**; chưa xác nhận thì không tạo yêu cầu.
+Khi chọn K2 trong bộ ca demo, vẫn dùng màn hình A: thay [2] bằng **“Chỉ gợi ý bước đầu”**; [3] hiện thẻ **“Bài 3 · đang mở · hạn 13/11/2026 23:59 — Trang khoá học”**, liên kết §3.2/§3.5 và câu trả lời K2 nguyên văn ở §3. Vị trí [5] có ô **“Hỏi tiếp về cách làm”**, **“Gợi ý chưa giúp”**, **“Xin xác nhận kết quả”**, **“Hỏi TA”**. Bản xem trước câu hỏi TA mở ngay trong màn hình, có ô sửa, nút **“Huỷ”** và **“Xác nhận gửi”**; chưa xác nhận thì không tạo yêu cầu.
 
 **Màn hình B — TA, trạng thái yêu cầu K1 đã chuyển thành công:**
 
@@ -189,14 +191,14 @@ K10 ở [8] là **ca phụ riêng** để thấy mức “cần người duyệt
 
 | Thời gian | Thao tác demo | Bằng chứng người xem phải thấy |
 |---|---|---|
-| **0:00–0:30** | Mở màn hình A, chọn K1 và gửi tin đã chuẩn bị. | Nhận diện AI ở [1]; câu trả lời K1 không xác nhận mệnh đề “luôn nhỏ hơn”, [2] báo “Cần TA kiểm tra”, FAQ chưa đăng. |
+| **0:00–0:30** | Mở màn hình A: trang khoá học mặc định K1, đọc §3.3 bên trái và bấm “Gửi câu hỏi” bên phải. Chỉ ra mốc 22:30, hạn bài 23:59 và TA đã hết giờ trực. | Nhận diện AI ở [1]; câu trả lời K1 không xác nhận mệnh đề “luôn nhỏ hơn”, [2] báo “Cần TA kiểm tra”, FAQ chưa đăng. |
 | **0:30–1:15** | Bấm “Xem §3.3”; cho mock chuyển TA trả lỗi, rồi bấm “Thử chuyển lại” để trả thành công. | [3] có đúng câu nguồn và ví dụ tách biệt. [4] lần lượt là “Chưa chuyển — thử lại” rồi “Đã chuyển (mô phỏng)”; không bịa giờ trả lời. Ngoài giờ trực: TA trực lại 08:00, không hứa trả lời ngay lúc đó. |
-| **1:15–2:00** | Đổi sang vai TA, mở yêu cầu K1; sau đó mở ca FAQ hợp lệ K10. | Chỉ yêu cầu chuyển thành công xuất hiện ở [6]. K1 bị chặn đăng tại [7]. K10 tại [8] có toàn văn, nguồn, trạng thái bài; chỉ TA mới có thao tác duyệt. |
+| **1:15–2:00** | Bấm “Xem TA nhận được gì”, xem yêu cầu K1; sau đó mở phần thu gọn “Thử duyệt FAQ · ca K10 riêng”. | Chỉ yêu cầu chuyển thành công xuất hiện ở [6]. K1 bị chặn đăng tại [7]. K10 tại [8] có toàn văn, nguồn, trạng thái bài; chỉ TA mới có thao tác duyệt. |
 | **2:00–2:30** | Với K10, sửa nháp, “Lưu bản sửa” → “Duyệt bản này” → “Đăng bản đã duyệt”; mô phỏng đăng thành công. | Sửa tạo bản mới và xoá duyệt cũ; chỉ sau duyệt bản mới và kết quả đăng thành công mới hiện “Đã đăng (mô phỏng)”. Bỏ mặc hoặc từ chối thì vẫn chưa đăng, không tự đăng khi hết giờ. |
-| **2:30–3:15** | Về màn hình A, chọn K2; bấm “Gợi ý chưa giúp”, rồi “Hỏi TA”, sửa câu hỏi và huỷ. | Chỉ diễn đạt lại bước đầu, không lộ kết quả hoặc nhận xét mẫu. Huỷ không tạo yêu cầu TA. Gửi lại và xác nhận mới kích hoạt chuyển; không hứa TA trả lời kịp 23:59. |
+| **2:30–3:15** | Bấm “Về trang học” rồi “Tiếp tục: K2 · Bài đang mở”; gửi câu hỏi, thử “Xin xác nhận kết quả”, sau đó “Hỏi TA”, sửa câu hỏi và huỷ. | Chỉ diễn đạt lại bước đầu, không lộ kết quả hoặc nhận xét mẫu. Huỷ không tạo yêu cầu TA. Gửi lại và xác nhận mới kích hoạt chuyển; không hứa TA trả lời kịp 23:59. |
 | **3:15–4:00** | Thử ca lạ hoặc bấm “Báo chỗ sai”. | Thiếu ngữ cảnh thì hỏi một câu; thiếu căn cứ thì dừng phần đó. Báo sai cho xem câu đang phản hồi; nếu xác minh được lỗi, giữ câu cũ có nhãn và thêm đính chính như §3. |
 
-Các nút chọn ca, đổi vai và mô phỏng thành công/lỗi nằm trong vùng **“Điều khiển demo”** riêng, không lẫn vào hành động của học viên. Không hiển thị tên tool kỹ thuật trong luồng học tập. Trạng thái “Đã chuyển/Đã đăng” luôn có dấu hiệu mô phỏng để không bị hiểu là đã gửi ra hệ thống thật.
+Các nút chọn ca, đổi vai và mô phỏng thành công/lỗi nằm trong vùng **“Công cụ trình diễn”** thu gọn, không lẫn vào hành động của học viên. Không hiển thị tên tool kỹ thuật trong luồng học tập. Trạng thái “Đã chuyển/Đã đăng” luôn có dấu hiệu mô phỏng để không bị hiểu là đã gửi ra hệ thống thật.
 
 ### 5.4. Quyết định về độ chắc, bằng chứng và quyền hành động
 
@@ -231,6 +233,8 @@ Các kết quả sau được thực hiện với bản mock, không gửi câu 
 | Ca đính chính §3.3 | **Đạt:** bấm báo sai và gửi phản hồi giữ câu cũ, có nhãn “Đã đính chính”, lời nhận lỗi và chuyển TA mô phỏng. |
 | Ca lạ “Slide 12 nói gì?” | **Đạt:** nói tài liệu không có slide đánh số, hỏi mục đang cần và chỉ nêu nguồn §3.2 thực có. |
 | Kiểm tra mã và luật hành động | **Đạt:** `node --check prototype/app.js` và `node prototype/check.cjs`; kiểm tra cả quyền vai, chặn K1, phiên bản duyệt, lỗi chuyển/đăng và tách bản nháp/bản đã đăng. Không có lỗi/cảnh báo trong log trình duyệt ở lượt kiểm tra. |
+
+**Kiểm tra sau chỉnh sửa:** đã bấm lại luồng K1 → K2 trên trang tài liệu, hàng chờ chứa đúng câu nguồn K1 và ngữ cảnh bài mở K2; nhánh xin xác nhận kết quả không cung cấp đáp số. Kiểm tra lại sửa FAQ làm mất duyệt và chỉ đăng đúng bản được duyệt. Ở viewport 390 px không tràn ngang; desktop hiển thị tài liệu và trợ lý cạnh nhau. Ảnh [1]–[8] được chụp lại từ bản chỉnh sửa.
 
 **Đối chiếu M3:** có file prototype bấm qua ca khó K1/K2; có hai màn hình, hai ảnh đánh số; thấy mức **tự làm** (tra cứu/gợi ý/chuyển theo điều kiện), **cần người duyệt** (FAQ K10) và **cấm** (đăng nghi vấn K1, giải hộ K2). G10, G11, G9 đều được gắn vào vị trí cụ thể ở §5.2. Phạm vi chặng 5 đã hoàn thành ở mức prototype dùng dữ liệu dựng; không lấy đó làm cam kết về chất lượng AI thật.
 

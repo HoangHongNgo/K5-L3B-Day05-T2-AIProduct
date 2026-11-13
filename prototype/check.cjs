@@ -1,0 +1,13 @@
+const assert=require('node:assert/strict');
+const {createModel,transfer,finishTransfer,saveDraft,approve,publish,finishPublish}=require('./app.js');
+const m=createModel();
+const request={key:'K1',title:'Nghi vấn §3.3'};
+m.transferFail=true;transfer(m,request);assert.equal(m.requests.length,0);finishTransfer(m);assert.equal(m.transfer,'error');assert.equal(m.requests.length,0);
+m.transferFail=false;transfer(m,request);finishTransfer(m);assert.equal(m.requests.length,1);transfer(m,request);finishTransfer(m);assert.equal(m.requests.length,1);
+assert.equal(approve(m),false,'Học viên không duyệt FAQ');assert.equal(publish(m),false);
+m.role='ta';assert.equal(approve(m,'K1'),false);assert.equal(publish(m,'K1'),false,'Nghi vấn K1 không được đăng');
+assert.equal(publish(m),false,'Chưa duyệt thì không đăng');approve(m);saveDraft(m,'Tổng là 30; chia 5 được 6.');assert.equal(m.faq.approved,null);assert.equal(publish(m),false,'Bản sửa cần duyệt lại');
+approve(m);assert.equal(publish(m),true);m.publishFail=true;finishPublish(m);assert.equal(m.faq.published,null,'Đăng lỗi không được coi là đã đăng');assert.match(m.faq.status,/Đăng lỗi/);
+m.publishFail=false;publish(m);finishPublish(m);assert.equal(m.faq.published.version,2);assert.equal(m.faq.published.text,m.faq.text);
+saveDraft(m,'Trung bình cộng là 30 / 5 = 6.');assert.equal(m.faq.published.version,2,'Sửa nháp không tự thay bản đã đăng');assert.equal(publish(m),false);
+console.log('PASS: chuyển lỗi/thử lại/không trùng; quyền TA; chặn K1; duyệt đúng bản; đăng lỗi; bản nháp tách bản đã đăng.');

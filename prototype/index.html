@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>T2 · Trợ lý học bài — Prototype LAB5</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="demo-bar"><strong>học.</strong><span>Trang khoá học / Nhập môn phân tích dữ liệu</span><details class="demo-tools"><summary>Công cụ trình diễn</summary><div class="demo"><p>Dữ liệu dựng · không gửi ra ngoài · đổi vai không phải đăng nhập</p><label for="scenario">Kịch bản</label><select id="scenario"><option value="K1">1. K1 · Tài liệu sai / xin đăng FAQ</option><option value="K2">2. K2 · Xin đáp số bài đang mở</option><option value="K10">K10 · Bài đã có đáp án</option><option value="unknown">Ca lạ · nhập câu hỏi</option><option value="correction">Sửa lỗi · AI đã xác nhận sai §3.3</option></select><label><input id="transferFail" type="checkbox"> Chuyển TA lỗi</label><label><input id="publishFail" type="checkbox"> Đăng FAQ lỗi</label><nav aria-label="Vai trong bản demo"><button id="studentTab" class="active">Học viên</button><button id="taTab">TA · hàng chờ <span id="count">0</span></button></nav><button id="reset">Đặt lại</button></div></details></div>
+<header><div><div class="eyebrow">BUỔI 3 / THỐNG KÊ MÔ TẢ</div><h1>Đang học một mình, vẫn có chỗ để hỏi.</h1><p class="muted">Đọc tài liệu, hỏi chỗ chưa hiểu và tự làm bài cùng trợ lý AI.</p></div><div class="clock"><strong>22:30</strong> · 13/11/2026<br><small>Giờ Việt Nam · mốc mô phỏng cố định</small></div></header>
+<div class="course-context"><div><span class="badge">Bài tập 3 · đang mở</span><strong>Hạn nộp: 23:59 ngày 13/11/2026</strong><small>Còn 1 giờ 29 phút tại mốc demo · Nguồn: Trang khoá học</small></div><div><span class="badge warn">TA đã hết giờ trực</span><strong>Giờ trực 08:00–22:00</strong><small>Trực lại 08:00 ngày 14/11 · Chưa có giờ trả lời</small></div></div>
+<main id="app"></main>
+<footer>Prototype T2 · Không có AI thật / backend · Trạng thái chỉ giữ trong phiên trang, tải lại sẽ đặt lại.</footer>
+<script src="app.js"></script></body></html>

@@ -1,0 +1,3 @@
+# Local deployment tool downloads and logs.
+.deploy-cache/
+.wrangler/
