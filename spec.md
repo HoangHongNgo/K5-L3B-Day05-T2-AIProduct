@@ -90,3 +90,52 @@ Chúng tôi chọn hai ca này vì hậu quả **không thu hồi được sau k
 - **G9 — sửa dễ dàng:** người học có nút “Báo chỗ sai” hoặc “Gợi ý chưa giúp”; câu AI cũ có nhãn khi đã đính chính.
 
 Các thẻ nguồn giúp người học tin **đúng mức căn cứ** (PAIR *Explainability + Trust*). Nút báo sai, thử chuyển lại và hỏi TA tạo đường lui khi AI dừng (PAIR *Errors + Graceful Failure*).
+
+## §4. Mức tự chủ  (chặng 4)
+
+**Nguyên tắc chốt:** quyền đọc không đồng nghĩa với quyền khẳng định nguồn đúng; quyền gửi riêng không đồng nghĩa với quyền đưa lời giải; quyền đăng cho cả lớp cần người chịu trách nhiệm duyệt. Các mức dưới đây là **quyết định thiết kế**, chưa phải bằng chứng hệ thống đã thực thi được. Căn cứ là bảng tool, dữ liệu A/B và Hard tests trong `t2-education.md`, cùng K1–K10 ở §2.
+
+### 4.1. Mức của từng tool và cái giá khi sai
+
+| Tool | Mức của nhóm và giới hạn | Sai thì ai chịu gì; đảo lại thế nào | Chờ người thì mất gì; phương án bị loại |
+|---|---|---|---|
+| `tra_cuu_tai_lieu` | **Tự làm.** Tra đoạn trong tài liệu buổi đã mở, giữ đúng mã mục. Không tìm được thì báo thiếu nguồn; không tạo “slide 12”. Việc đọc trang khoá học để đối chiếu trạng thái/hạn dùng dữ liệu B có sẵn, không giả định tool này có thêm chức năng. | Chọn nhầm mục khiến học viên hiểu sai; AI có thể tra lại và đính chính ngay lượt kế tiếp, không phải sửa hồ sơ bên ngoài. Nhưng kiến thức đã đọc không tự mất đi: K1 cho thấy §3.3 có mã nguồn vẫn có thể sai, nên kết quả tra cứu chưa đủ điều kiện để khẳng định hay đăng FAQ. | Duyệt mỗi lần đọc khiến học viên tối muộn không tiếp tục học được dù nguồn đã có. Loại **cần người duyệt** vì không chặn được lỗi nguồn bằng việc duyệt quyền đọc; loại **cấm** vì mất căn cứ để giải thích K4/K10. Giữ việc kiểm tra nội dung ở bước trả lời/gửi. |
+| `goi_y_bai_tap` | **Tự làm trong phạm vi được phép.** Bài đang mở: chỉ gợi ý bước đầu; cấm đưa hoặc xác nhận đáp số, viết nhận xét hộ. Bài đã đóng **và đã có đáp án công bố**: được giải thích đầy đủ. Chưa rõ số bài/trạng thái thì hỏi lại trước khi gửi. | Gợi ý quá tay làm học viên chép bài, mất cơ hội tự học và ảnh hưởng đánh giá; K2 có đủ số liệu ở §3.5 để xảy ra lỗi này. Nội dung đã đọc không thu hồi được, dù xoá tin. AI chỉ có thể đính chính, dừng gửi tiếp và chuyển sự cố cho TA theo §3. | Bắt duyệt mọi gợi ý sau 22:00 có thể làm học viên lỡ hạn bài 3 lúc 23:59. Loại **cần người duyệt cho mọi lần gửi** vì chặn cả bước đầu an toàn và lời giải bài 2 đã công bố (K10); loại **cấm toàn bộ** vì không còn hỗ trợ học. Cũng loại tự gửi không giới hạn: cái giá K2 không thể hoàn tác. |
+| `chuyen_TA` | **Tự làm.** Tự chuyển nghi vấn nguồn K1 hoặc sự cố đã gửi sai ở §3. Với câu hỏi thông thường như K2, chỉ gửi sau khi học viên bấm “Hỏi TA” và xem câu hỏi sẽ gửi. Đây là điều kiện kích hoạt, không phải yêu cầu TA duyệt trước khi nhận. | Chuyển nhầm làm TA mất công, học viên chờ sai việc. Track ghi có thể đảo lại, nhưng không có tool thu hồi riêng: TA xử lý nhầm/trùng khi đọc yêu cầu; thời gian xử lý lại chưa có trong fixture, AI không hứa “đã huỷ”. Chi phí này thấp hơn để câu sai ở K1 không ai biết. | Chờ TA duyệt việc chuyển cho chính TA tạo vòng chờ, nhất là ngoài 08:00–22:00. Loại **cần người duyệt mọi lần chuyển** vì trì hoãn báo sự cố; loại **cấm** vì mất đường sửa lỗi nguồn. Chỉ gửi phần câu hỏi, nguồn và bước đã thử cần thiết, không tự chuyển mọi hội thoại. |
+| `dang_FAQ` | **Cần người duyệt — TA phụ trách khoá học.** Học viên bấm yêu cầu đăng chưa đủ quyền duyệt. Nội dung đang nghi sai như K1 hoặc làm lộ lời giải bài đang mở như K2 **bị cấm đăng**, kể cả học viên xác nhận. | Cả lớp có thể học sai; TA phải gỡ và đính chính. Track nói gỡ được nhưng không có tool gỡ trong bộ công cụ này, nên việc gỡ do người phụ trách xử lý, không có thời gian bảo đảm. Không thể thu hồi điều người học đã đọc; duyệt phải diễn ra trước khi đăng. | Chờ làm FAQ cập nhật chậm, nhưng học viên vẫn nhận giải thích riêng hợp lệ ngay. Loại **tự làm** vì K1 khuếch đại lỗi từ một người sang cả lớp; loại **cấm toàn bộ** vì câu đã được kiểm tra vẫn có ích cho lớp. Một bước duyệt chỉ phù hợp khi đã đủ căn cứ, không dùng để hợp thức hoá nghi vấn chưa giải quyết. |
+
+### 4.2. Người duyệt thấy gì và nếu chưa duyệt thì sao
+
+**Với `dang_FAQ`:** TA thấy bản câu hỏi đã bỏ thông tin nhận diện không cần thiết, **toàn văn câu trả lời sẽ đăng**, đoạn nguồn kèm mã mục, trạng thái bài tập từ trang khoá học, và cảnh báo nghi sai/lộ lời giải nếu có. Chỉ khi nội dung đủ căn cứ, không vi phạm giới hạn bài mở, TA mới bấm **“Duyệt và đăng bản này”**. Nếu sửa câu trả lời sau khi duyệt, bản mới phải được duyệt lại; không dùng xác nhận cũ để đăng nội dung khác. Học viên chỉ thấy **“Chờ TA duyệt — chưa đăng”**.
+
+**Không có cơ chế hết thời gian thì tự đăng.** Fixture không quy định hạn duyệt FAQ; thiết kế không tự đặt cam kết phản hồi. Ngoài giờ trực, hiển thị TA trực lại lúc 08:00, không hứa sẽ duyệt ngay lúc đó. Nếu bài tập đã qua hạn khi TA mở bản nháp, phải kiểm tra lại trạng thái và việc công bố đáp án, không tự suy ra đã được phép đăng lời giải. Khi chưa ai duyệt hoặc TA từ chối, FAQ vẫn chưa đăng, học viên vẫn dùng được hỗ trợ riêng trong giới hạn.
+
+**Với `chuyen_TA`:** chuyển câu hỏi và nhận câu trả lời là hai việc khác nhau. Tool thành công mới hiện “Đã chuyển”; giờ trả lời chỉ hiển thị nếu tool có báo. Nếu không có giờ, ghi “Chưa có giờ trả lời”, không tự suy ra từ giờ trực. Tool lỗi thì hiện “Chưa chuyển — thử lại”, không coi TA đã nhận. Với K2, bấm “Hỏi TA” không bảo đảm được trả lời trước hạn và không đổi hạn bài 3.
+
+### 4.3. Tool khó xếp nhất: `goi_y_bai_tap`
+
+**Hai phía đều có giá:** K2 cho thấy tự gửi rộng có thể lộ lời giải không thu hồi được; lời nhắn “để em nộp kịp” không làm rủi ro đó nhỏ đi. Ngược lại, buộc TA duyệt từng gợi ý làm học viên học sau 22:00 phải chờ đến khi bài 3 đã hết hạn. K10 cho thấy cùng quy trình chờ đó còn áp nhầm lên bài 2 đã đóng và đã công bố đáp án, dù được phép giải thích đầy đủ.
+
+**Chốt thiết kế:** tự gửi phần hỗ trợ hợp lệ sau khi kiểm tra ngữ cảnh; cấm phần vượt giới hạn, không cho học viên bấm “tôi đồng ý” để nhận đáp số bài mở. Nếu chưa phân biệt được gợi ý với lời giải hoặc không xác định được trạng thái bài, hỏi lại hoặc dừng gửi phần đó và cho chọn hỏi TA. Đánh đổi được chấp nhận là đôi khi gợi ý ít hơn học viên muốn, để vẫn hỗ trợ ngay mà không mở đường giải hộ.
+
+**Phần thảo luận thành viên chưa có dữ liệu:** bảng thành viên ở đầu spec còn trống nên chưa ghi nhận được ai từng chọn mức nào. Không coi ba phương án phân tích ở trên là kết quả bỏ phiếu thật. Khi nhóm thảo luận, cần bổ sung tên, mức chọn ban đầu và lý do của từng người; quyết định thiết kế để dùng tiếp ở đây là mức đã chốt trong §4.1.
+
+### 4.4. Luật thêm và tách bước để chặn trước khi gửi
+
+1. **Tách chuẩn bị khỏi phát hành.** Với gợi ý: soạn nội bộ → đối chiếu số bài, trạng thái, nguồn và giới hạn nội dung → mới gọi `goi_y_bai_tap`. Việc soạn chưa tạo nội dung học viên thấy; áp cùng giới hạn cho cả câu trả lời trong chat để không lách bằng cách bỏ qua tool. K2 xin xác nhận một đáp số cũng bị chặn như xin đáp số; các lượt hỏi nối tiếp không được cộng dồn thành lời giải hoàn chỉnh cho bài đang mở.
+2. **Với FAQ:** soạn nháp nội bộ → kiểm tra điều kiện → TA duyệt đúng bản → gọi `dang_FAQ`. Đây là **bước thiết kế bổ sung**, không phải tuyên bố track đã có tool soạn nháp/duyệt. K1 chỉ được tạo yêu cầu kiểm tra gửi TA, chưa được đưa sang bản có thể bấm đăng cho đến khi nghi vấn được giải quyết. Nếu chưa có cơ chế gắn quyền duyệt với đúng bản nội dung, AI chưa được gọi `dang_FAQ`.
+3. **Thiếu ngữ cảnh thì hỏi trước hành động.** K5 chưa rõ khái niệm thì hỏi một câu; K6 chưa rõ số bài thì không đoán hạn. Chỉ lấy hạn từ dữ liệu B. Không có tool sửa nguồn, đổi hạn hoặc nhắn giảng viên trực tiếp, nên những hành động đó nằm ngoài quyền, không có nút xác nhận để AI thực hiện (K7).
+
+Các luật này là yêu cầu cần thể hiện ở prototype §5. Chỉ viết “AI sẽ cẩn thận” hoặc thêm câu cảnh báo sau khi gửi không đủ chứng minh K1/K2 đã được chặn.
+
+### 4.5. Thử mức trên hai ca đắt nhất và một ca bình thường
+
+Đây là **đối chiếu luồng thiết kế với fixture**, không phải kết quả chạy agent hay kiểm thử triển khai.
+
+| Ca | Với mức đã đặt, AI làm gì; học viên thấy gì | Cái sai có bị chặn không? | Có còn tự làm khi lẽ ra phải hỏi/duyệt? | Có bắt người dùng chờ vô ích không? |
+|---|---|---|---|---|
+| **K1 ★ — §3.3 sai, xin đăng FAQ** | Tự tra §3.3, chỉ ra câu cần kiểm tra và ví dụ phản chứng như §3; tự chuyển nghi vấn cho TA. Hiện “Cần TA kiểm tra”, “Chưa đăng” và trạng thái chuyển thực tế. | **Có ở luồng thiết kế:** dừng xác nhận câu sai; chặn `dang_FAQ` khi nghi vấn chưa giải quyết. Không để người học xác nhận thay TA. | Không cần hỏi lại học viên để xác minh một lỗi nằm ở nguồn. Việc đăng phải chờ đủ căn cứ và TA duyệt; chuyển nghi vấn không cần đợi TA chấp thuận trước. | Không chờ để xem nguồn và biết vấn đề. Chờ kiểm tra/FAQ là chi phí cần thiết; không hứa sửa nguồn ngay. |
+| **K2 ★ — xin đáp số bài 3 đang mở** | Đọc trạng thái/hạn từ dữ liệu B; tự gửi duy nhất gợi ý bước đầu về sắp số và vị trí giữa, dẫn §3.2/§3.5. Hiện “Chỉ gợi ý bước đầu”; không báo TA chỉ vì xin đáp số. | **Có ở luồng thiết kế:** chặn đáp số, xác nhận đáp số và nhận xét hoàn chỉnh trước mọi nội dung gửi ra; hỏi dồn nhiều lượt vẫn giữ giới hạn. | Học viên đã nêu bài 3 nên không hỏi lại số bài. Chỉ chuyển câu hỏi thường khi học viên đã xem và chọn “Hỏi TA”; nếu đã lộ lời giải thì báo sự cố ngay theo §3. | Không chờ TA để nhận bước đầu. Nếu học viên chọn hỏi TA sau 22:00, nói rõ chưa bảo đảm phản hồi trước 23:59. |
+| **K10 — hỏi vì sao đáp án bài 2 là 6** | Đối chiếu bài 2 đã đóng và đáp án công bố 07/11; giải thích ngay: tổng 30 chia 5 được 6, dẫn trang khoá học. Không tự đăng lời giải thành FAQ. | **Có:** không áp nhầm luật bài đang mở; lời giải khớp đáp án đã công bố. | Không: số bài và nguồn đáp án đã rõ. Nếu học viên chỉ nói “bài đó”, phải quay về hỏi như K6. | Không: không chuyển TA hay chờ duyệt để giải thích riêng đáp án công khai. |
+
+**Lời hứa với người dùng thay đổi:** chọn `goi_y_bai_tap` tự làm có giới hạn khiến sản phẩm phải nói **“Mình giúp em bắt đầu ngay; với bài đang mở, mình không đưa hay xác nhận đáp số”**. Chọn `dang_FAQ` cần TA duyệt khiến lời hứa là **“Nội dung đủ căn cứ có thể được soạn để TA duyệt; chỉ đăng sau khi TA duyệt bản đó”**. Việc chuyển TA chỉ hứa gửi yêu cầu khi tool thành công, không hứa TA sẽ xử lý kịp hạn. Các lời hứa này phải xuất hiện nhất quán ở §3 và prototype §5.
