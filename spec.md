@@ -2,6 +2,10 @@
 
 **Lớp:** L3B · **Track:** T2
 
+**Demo trực tuyến:** [Mở trợ lý học bài](https://hoc-dem-t2-aiproduct.lightningvn.workers.dev/) · [Xem mức tự chủ của AI](https://hoc-dem-t2-aiproduct.lightningvn.workers.dev/muc-tu-chu/).
+
+Mở link demo, bấm **“Gửi câu hỏi”** để bắt đầu K1. Kịch bản demo bốn phút ở §5.3; hướng dẫn chuyển vai TA và thử ca lạ ở §7. Website không yêu cầu đăng nhập; dữ liệu và thao tác trong prototype đều là mô phỏng.
+
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
 | Trần Văn Tuấn | 2A202604092 | Chuẩn bị demo |
@@ -165,19 +169,22 @@ Các luật này là yêu cầu cần thể hiện ở prototype §5. Chỉ vi�
 
 ## §5. Prototype  (chặng 5)
 
-### 5.1. Phạm vi, công cụ và tình trạng bằng chứng
+### 5.1. Website triển khai và link demo
 
-**Link deploy:** [https://hoc-dem-t2-aiproduct.lightningvn.workers.dev](https://hoc-dem-t2-aiproduct.lightningvn.workers.dev).
+| Nội dung | Link / cách mở | Mục đích |
+|---|---|---|
+| **Demo chính — trang khoá học** | [hoc-dem-t2-aiproduct.lightningvn.workers.dev](https://hoc-dem-t2-aiproduct.lightningvn.workers.dev/) | Bấm thử K1, K2, chuyển TA và duyệt FAQ trong cùng website. |
+| **Trang mức tự chủ** | [Mức tự chủ của AI](https://hoc-dem-t2-aiproduct.lightningvn.workers.dev/muc-tu-chu/) | Đọc liên tục phần tóm tắt §4: việc AI tự làm, cần người duyệt và bị cấm. |
+| **Mã nguồn và hướng dẫn** | [Prototype](prototype/index.html) · [Hướng dẫn chạy](prototype/README.md) | Tải repo, mở `prototype/index.html`; giữ `style.css` và `app.js` cùng thư mục. |
+| **Bằng chứng demo nội bộ** | [Ảnh, kết quả và cách chạy lại](prototype/demo-evidence/README.md) | Đối chiếu luồng K1/K2 và 5 ca lạ với kết quả quan sát được. |
 
-**Trạng thái triển khai:** đã triển khai chính thức bằng Cloudflare Workers Static Assets vào tài khoản Cloudflare của chủ nhóm ngày 13/11/2026, qua phiên đăng nhập OAuth, không dùng `--temporary`. Phiên bản triển khai: `1682cf28-1e88-41a0-a243-aa1fc809d642`. Đã xác minh trang chính, `/app.js`, `/style.css` và `/muc-tu-chu/` đều trả HTTP 200, nội dung khớp file bài nộp. Bản này không chịu giới hạn claim 60 phút của tài khoản tạm; nội dung và hành động trong demo vẫn là mock. Link triển khai tạm trước đây đã được thay thế.
+**Cách vào demo:** mở demo chính, đọc tài liệu buổi 3 bên trái và trợ lý bên phải; trên điện thoại hai phần xếp dọc. Trang mở mặc định ở **K1 — tài liệu §3.3 có câu sai**. Bấm **“Gửi câu hỏi”** để xem trợ lý chỉ ra nghi vấn và chuyển TA. Bấm **“Xem TA nhận được gì”** để vào hàng chờ; đây là màn hình thứ hai của cùng website, không có link đăng nhập TA riêng. Bấm **“Về trang học”**, rồi **“Tiếp tục: K2 · Bài đang mở”** để thử giới hạn gợi ý bài tập. Bộ chọn ca, giả lập lỗi, đổi vai và nút đặt lại nằm trong **“Công cụ trình diễn”**.
 
-**Kịch bản chỉnh sửa đã được duyệt:** giữ thứ tự **K1 → K2**. Mở đầu tại trang khoá học, buổi 3: học viên thấy tài liệu ở bên trái và trợ lý AI bên phải, mốc 22:30, bài 3 còn hạn đến 23:59 và TA đã hết giờ trực. Công cụ chọn ca/giả lập lỗi/đổi vai được thu gọn. K1 mở mặc định ở §3.3, sau câu hỏi mới đánh dấu câu nghi sai; nút “Tiếp tục: K2 · Bài đang mở” đưa sang đề bài §3.5. K2 có ô hỏi tiếp và nút “Xin xác nhận kết quả”; yêu cầu chỉ xác nhận đúng/sai vẫn bị giới hạn như xin đáp số. Ca FAQ K10 nằm trong phần thu gọn riêng trên màn hình TA.
+**Trạng thái triển khai:** website được triển khai ngày **13/11/2026** bằng **Cloudflare Workers Static Assets**, trong tài khoản Cloudflare của chủ nhóm. Đây là bản triển khai chính thức, không có giới hạn claim 60 phút của bản tạm trước đó. Đã kiểm tra trang chính, JavaScript, CSS và trang mức tự chủ trả **HTTP 200**, khớp file bài nộp; đã mở bằng Edge và chạy K1 đến khi xuất hiện một yêu cầu trong hàng chờ TA. Thông tin cập nhật hosting nằm trong [hướng dẫn prototype](prototype/README.md).
 
-**Chọn prototype hai màn hình:** (A) trợ lý trên trang khoá học cho học viên; (B) hàng chờ kiểm tra và duyệt FAQ cho TA. **K1 là ca demo chính**, vì cùng một luồng thể hiện được nguồn sai, chuyển người và chặn phát tán cho cả lớp. K2 dùng lại màn hình A để chứng minh giới hạn hỗ trợ bài đang mở. Không dựng thêm màn hình đăng nhập hoặc quản trị khoá học.
+**Phạm vi prototype:** hai màn hình gồm (A) trang học cho học viên và (B) hàng chờ kiểm tra/duyệt FAQ cho TA. K1 là ca chính vì thể hiện nguồn sai, chuyển người và chặn phát tán. K2 dùng lại màn hình A để chứng minh không đưa hoặc xác nhận đáp số bài mở; K10 là ca phụ riêng để thử duyệt FAQ hợp lệ. Bản dựng dùng HTML/CSS/JavaScript, không cần đăng nhập hoặc API key. Các ảnh [1]–[9] và bảng ở §5.2 chỉ rõ từng nguyên tắc và quyền hành động.
 
-**File và công cụ:** [Mở prototype T2](prototype/index.html) · [Hướng dẫn chạy và kiểm tra](prototype/README.md). Đã dựng bằng HTML/CSS/JavaScript, mở file trực tiếp, không backend và không đăng nhập. Giữ nguyên `index.html` mẫu T3 ở thư mục gốc. Toàn bộ câu hỏi, câu trả lời, kết quả tra cứu, chuyển TA và đăng FAQ đều **mock** theo dữ liệu A/B trong `t2-education.md`; **không có lời gọi AI thật**, không có API key. Mốc giờ demo cố định là **22:30 ngày 13/11/2026, giờ Việt Nam**, để thấy bài 3 còn mở nhưng đã ngoài giờ TA. Chuyển vai học viên/TA là điều khiển của bản demo, không phải cơ chế phân quyền thật.
-
-**Tình trạng hiện tại:** đã dựng và bấm kiểm tra hai màn hình học viên/TA trên trình duyệt; ảnh chụp thực tế bên dưới có số [1]–[9]. Đã kiểm tra các nhánh chuyển lỗi/thử lại, K2 xem trước/huỷ/xác nhận gửi, duyệt đúng phiên bản, đăng lỗi/thử lại, sửa câu AI sai và ca nguồn không tồn tại. Kết quả cụ thể ở §5.6. Đây là bằng chứng prototype tương tác, không phải kết quả chạy agent thật.
+**Bối cảnh và dữ liệu demo:** mốc cố định **22:30 ngày 13/11/2026, giờ Việt Nam**, bài 3 còn hạn đến 23:59, TA trực 08:00–22:00 nên đã hết giờ trực. Đây là đồng hồ kịch bản, không cập nhật theo giờ mở website. Nội dung dựa trên dữ liệu A/B của track T2; **không có lời gọi AI thật, không gửi câu hỏi cho TA thật và không đăng FAQ ra hệ thống lớp**. Chuyển vai là điều khiển demo; trạng thái nằm trong bộ nhớ trang, tải lại hoặc bấm **“Đặt lại”** sẽ xoá trạng thái phiên. Đổi vai giữ hàng chờ để người xem theo dõi cùng một yêu cầu.
 
 ### 5.2. Hai màn hình và ảnh đánh số
 
@@ -204,12 +211,14 @@ K10 ở [8] là **ca phụ riêng** để thấy mức “cần người duyệt
 | **[9]** | Học viên nhận nguyên văn phản hồi TA đã gửi thành công, thời điểm mô phỏng; ghi chú nội bộ không hiển thị. | **G11, G9**, PAIR *Errors + Graceful Failure*. | Người phụ trách gửi; AI không tự kết luận, sửa học liệu hoặc đăng FAQ. |
 | **[8]** | TA xem toàn văn đúng bản, nguồn, trạng thái bài trước khi duyệt. | **G11**, PAIR *Explainability + Trust*. | `dang_FAQ` cần TA duyệt; học viên không duyệt thay. |
 
-### 5.3. Bấm gì, thấy gì trong demo bốn phút
+### 5.3. Kịch bản demo trực tuyến trong bốn phút
+
+**Link dùng suốt lượt demo:** [Mở website prototype](https://hoc-dem-t2-aiproduct.lightningvn.workers.dev/). Trước mỗi lượt, mở “Công cụ trình diễn”, bấm “Đặt lại” và chọn K1; không cần mở thêm website hay đăng nhập tài khoản TA.
 
 | Thời gian | Thao tác demo | Bằng chứng người xem phải thấy |
 |---|---|---|
-| **0:00–0:30** | Mở màn hình A: trang khoá học mặc định K1, đọc §3.3 bên trái và bấm “Gửi câu hỏi” bên phải. Chỉ ra mốc 22:30, hạn bài 23:59 và TA đã hết giờ trực. | Nhận diện AI ở [1]; câu trả lời K1 không xác nhận mệnh đề “luôn nhỏ hơn”, [2] báo “Cần TA kiểm tra”, FAQ chưa đăng. |
-| **0:30–1:15** | Bấm “Xem §3.3”; cho mock chuyển TA trả lỗi, rồi bấm “Thử chuyển lại” để trả thành công. | [3] có đúng câu nguồn và ví dụ tách biệt. [4] lần lượt là “Chưa chuyển — thử lại” rồi “Đã chuyển (mô phỏng)”; không bịa giờ trả lời. Ngoài giờ trực: TA trực lại 08:00, không hứa trả lời ngay lúc đó. |
+| **0:00–0:30** | Mở màn hình A ở K1, chỉ ra §3.3, mốc 22:30, hạn bài 23:59 và TA hết giờ trực. Mở “Công cụ trình diễn”, bật “Chuyển TA lỗi” trước khi bấm “Gửi câu hỏi”. | Nhận diện AI ở [1]; câu trả lời K1 không xác nhận mệnh đề “luôn nhỏ hơn”, [2] báo “Cần TA kiểm tra”, FAQ chưa đăng. |
+| **0:30–1:15** | Bấm “Xem §3.3” và chỉ trạng thái chuyển lỗi. Tắt “Chuyển TA lỗi” trong công cụ trình diễn, rồi bấm “Thử chuyển lại”. | [3] có đúng câu nguồn và ví dụ tách biệt. [4] lần lượt là “Chưa chuyển — thử lại” rồi “Đã chuyển (mô phỏng)”; không bịa giờ trả lời. Ngoài giờ trực: TA trực lại 08:00, không hứa trả lời ngay lúc đó. |
 | **1:15–2:00** | Bấm “Xem TA nhận được gì”; chọn kết luận K1, nhập căn cứ và phản hồi, bấm “Xem trước phản hồi” rồi “Gửi phản hồi cho học viên”. Trở về trang học để thấy [9]. | Chỉ yêu cầu chuyển thành công xuất hiện ở [6]. Ghi chú nội bộ không gửi cho học viên; gửi lỗi chưa xuất hiện phản hồi ở [9]. K1 vẫn chưa đăng FAQ tại [7]. |
 | **2:00–2:30** | Mở phần thu gọn K10 tại [8], sửa nháp, “Lưu bản sửa” → “Duyệt bản này” → “Đăng bản đã duyệt”; mô phỏng đăng thành công. | Sửa tạo bản mới và xoá duyệt cũ; chỉ sau duyệt bản mới và kết quả đăng thành công mới hiện “Đã đăng (mô phỏng)”. Bỏ mặc hoặc từ chối thì vẫn chưa đăng, không tự đăng khi hết giờ. |
 | **2:30–3:15** | Bấm “Về trang học” rồi “Tiếp tục: K2 · Bài đang mở”; gửi câu hỏi, thử “Xin xác nhận kết quả”, sau đó “Hỏi TA”, sửa câu hỏi và huỷ. | Chỉ diễn đạt lại bước đầu, không lộ kết quả hoặc nhận xét mẫu. Huỷ không tạo yêu cầu TA. Gửi lại và xác nhận mới kích hoạt chuyển; không hứa TA trả lời kịp 23:59. |
@@ -301,6 +310,10 @@ Chấm trên **toàn bộ luồng của mỗi ca**, gồm câu trả lời, th�
 
 ## §7. Demo
 
+**Link trình diễn:** [Website trợ lý học bài](https://hoc-dem-t2-aiproduct.lightningvn.workers.dev/) · [Trang giải thích mức tự chủ](https://hoc-dem-t2-aiproduct.lightningvn.workers.dev/muc-tu-chu/).
+
+Dùng website chính cho toàn bộ thao tác học viên/TA. Để thử câu mới, mở **“Công cụ trình diễn” → “Kịch bản” → “Ca lạ · nhập câu hỏi”**, nhập câu hỏi và bấm **“Gửi câu hỏi”**. Để lặp lại từ đầu, bấm **“Đặt lại”**. Hướng dẫn theo thời gian nằm ở §5.3; các ca lạ đã thử và thay đổi sau kiểm tra nằm ở §7.3.
+
 ### 7.1. Ca chính, thông điệp và chia phần trình bày
 
 **30 giây đầu nói:** “Đây là trợ lý AI trong trang khoá học, hỗ trợ học viên lúc 22:30 khi TA đã hết giờ trực. Tài liệu §3.3 có một câu sai; nếu AI trích lại rồi đăng FAQ, cả lớp có thể học sai. Nhóm sẽ cho thấy trợ lý chỉ ra vấn đề, chuyển TA và chặn đăng; với bài 3 đang mở, trợ lý chỉ giúp bước đầu.”
@@ -330,6 +343,8 @@ Người xem nhập vào mục **“Ca lạ”** trên màn hình A. Với nhán
 ### 7.3. Demo nội bộ đã chạy và thay đổi sau ca lạ
 
 **Hình thức:** Codex thực hiện theo yêu cầu nhóm, chạy prototype local trên Microsoft Edge headless lúc **12:51 ngày 13/11/2026, giờ Việt Nam**. Ca lạ do Codex tự đặt để kiểm thử, không phải câu do TA, nhóm bạn hoặc giảng viên đưa tại lớp. Tất cả chuyển TA, phản hồi TA và FAQ đều là thao tác mô phỏng trong prototype. Đây là biên bản chạy thật trên bản mock, không xác nhận nhóm đã demo trước lớp hoặc được bonus.
+
+**Kiểm tra website sau triển khai:** đã mở link chính thức bằng Edge, gửi câu hỏi K1 và quan sát hàng chờ nhận đúng một yêu cầu mô phỏng; đã mở trang mức tự chủ thành công. Kiểm tra này xác nhận website phục vụ được prototype. Bộ 18 phép kiểm tra bên dưới được chạy trên bản local cùng nội dung; không trình bày toàn bộ bộ kiểm tra đó là đã chạy trên hosting.
 
 **Bằng chứng có thể chạy lại:** [Script demo](prototype/demo.cjs) · [Kết quả từng phép kiểm tra](prototype/demo-evidence/results.json) · [Lỗi trước khi sửa](prototype/demo-evidence/before-fix.json) · [Hướng dẫn và ảnh bằng chứng](prototype/demo-evidence/README.md).
 
