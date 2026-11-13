@@ -101,7 +101,7 @@ Các thẻ nguồn giúp người học tin **đúng mức căn cứ** (PAIR *Ex
 
 ## §4. Mức tự chủ  (chặng 4)
 
-**Bản web tóm tắt, không dùng tab:** [Mức tự chủ của AI](https://hoc-dem-t2-aiproduct.towering-petunia.workers.dev/muc-tu-chu/) · [File local](prototype/muc-tu-chu/index.html).
+**Bản web tóm tắt, không dùng tab:** [Mức tự chủ của AI](https://hoc-dem-t2-aiproduct.lightningvn.workers.dev/muc-tu-chu/) · [File local](prototype/muc-tu-chu/index.html).
 
 **Nguyên tắc chốt:** quyền đọc không đồng nghĩa với quyền khẳng định nguồn đúng; quyền gửi riêng không đồng nghĩa với quyền đưa lời giải; quyền đăng cho cả lớp cần người chịu trách nhiệm duyệt. Các mức dưới đây là **quyết định thiết kế**, chưa phải bằng chứng hệ thống đã thực thi được. Căn cứ là bảng tool, dữ liệu A/B và Hard tests trong `t2-education.md`, cùng K1–K11 ở §2. Trạng thái/hạn bài trong bài thiết kế lấy theo fixture ngày 13/11/2026; khi làm sản phẩm thật phải đọc trạng thái hiện hành, không giữ cứng “đang mở” sau ngày này.
 
@@ -167,9 +167,9 @@ Các luật này là yêu cầu cần thể hiện ở prototype §5. Chỉ vi�
 
 ### 5.1. Phạm vi, công cụ và tình trạng bằng chứng
 
-**Link deploy:** [https://hoc-dem-t2-aiproduct.towering-petunia.workers.dev](https://hoc-dem-t2-aiproduct.towering-petunia.workers.dev).
+**Link deploy:** [https://hoc-dem-t2-aiproduct.lightningvn.workers.dev](https://hoc-dem-t2-aiproduct.lightningvn.workers.dev).
 
-**Trạng thái triển khai:** đã deploy bằng Cloudflare Workers Static Assets ngày 13/11/2026 và kiểm tra mở được prototype T2 trên trình duyệt. Đây là tài khoản triển khai tạm: chủ sở hữu cần hoàn tất nhận tài khoản qua link claim riêng trong vòng 60 phút từ khi tạo để giữ web lâu dài; chưa coi đây là hosting vĩnh viễn. Nội dung và hành động trong demo vẫn là mock. Link claim không đưa vào repo.
+**Trạng thái triển khai:** đã triển khai chính thức bằng Cloudflare Workers Static Assets vào tài khoản Cloudflare của chủ nhóm ngày 13/11/2026, qua phiên đăng nhập OAuth, không dùng `--temporary`. Phiên bản triển khai: `1682cf28-1e88-41a0-a243-aa1fc809d642`. Đã xác minh trang chính, `/app.js`, `/style.css` và `/muc-tu-chu/` đều trả HTTP 200, nội dung khớp file bài nộp. Bản này không chịu giới hạn claim 60 phút của tài khoản tạm; nội dung và hành động trong demo vẫn là mock. Link triển khai tạm trước đây đã được thay thế.
 
 **Kịch bản chỉnh sửa đã được duyệt:** giữ thứ tự **K1 → K2**. Mở đầu tại trang khoá học, buổi 3: học viên thấy tài liệu ở bên trái và trợ lý AI bên phải, mốc 22:30, bài 3 còn hạn đến 23:59 và TA đã hết giờ trực. Công cụ chọn ca/giả lập lỗi/đổi vai được thu gọn. K1 mở mặc định ở §3.3, sau câu hỏi mới đánh dấu câu nghi sai; nút “Tiếp tục: K2 · Bài đang mở” đưa sang đề bài §3.5. K2 có ô hỏi tiếp và nút “Xin xác nhận kết quả”; yêu cầu chỉ xác nhận đúng/sai vẫn bị giới hạn như xin đáp số. Ca FAQ K10 nằm trong phần thu gọn riêng trên màn hình TA.
 
@@ -357,5 +357,5 @@ Người xem nhập vào mục **“Ca lạ”** trên màn hình A. Với nhán
 - [x] Mỗi thành viên xác nhận phần trình bày và đối chiếu lại mã học viên.
 - [x] Bổ sung lựa chọn ban đầu dưới dạng giả định có ghi nhãn ở §4.3 theo yêu cầu nhóm; không trình bày là phát biểu thực tế.
 - [x] Đã chạy demo nội bộ K1/K2 và 5 ca lạ, sửa lỗi U5, lưu kết quả và ảnh bằng chứng ở §7.3.
-- [x] Thử mở link web và repo trong cửa sổ ẩn danh trước nộp. Lượt rà soát này chưa xác minh lại được web từ môi trường kiểm tra; chuẩn bị file local làm phương án demo dự phòng.
+- [x] Đã deploy vào tài khoản Cloudflare chính thức và xác minh HTTP 200, đúng nội dung cho trang chính, JavaScript, CSS và trang mức tự chủ. Repo công khai đã được xác minh qua GitHub API; file local vẫn dùng làm phương án demo dự phòng.
 - [x] Đồng bộ các thay đổi cuối lên repo. Nộp link repo qua kênh giảng viên thông báo trước **23:59 ngày 13/11/2026, giờ Việt Nam**; việc repo công khai không có nghĩa đã gửi bài qua kênh nộp.

@@ -1,6 +1,6 @@
 # Prototype LAB5 · T2 Giáo dục
 
-Bản web: https://hoc-dem-t2-aiproduct.towering-petunia.workers.dev — triển khai Cloudflare Workers Static Assets ngày 13/11/2026. Tài khoản tạm cần được chủ sở hữu nhận qua link claim riêng trong 60 phút để giữ lâu dài. Không lưu link claim hoặc thông tin xác thực vào repo. Ba file xuất bản là `index.html`, `style.css`, `app.js`; gói `cloudflare-pages.zip` chứa ba file chính và thư mục `muc-tu-chu/` để dùng khi Direct Upload.
+Bản web chính thức: https://hoc-dem-t2-aiproduct.lightningvn.workers.dev — triển khai Cloudflare Workers Static Assets vào tài khoản của chủ nhóm ngày 13/11/2026 bằng phiên đăng nhập OAuth, không dùng `--temporary`. Không cần claim trong 60 phút. Phiên bản triển khai: `1682cf28-1e88-41a0-a243-aa1fc809d642`. Trang chính, JavaScript, CSS và trang mức tự chủ đã được xác minh HTTP 200 và khớp nội dung local. Ba file xuất bản là `index.html`, `style.css`, `app.js`; gói `cloudflare-pages.zip` chứa ba file chính và thư mục `muc-tu-chu/` để dùng khi Direct Upload.
 
 Mở `index.html` trong thư mục này bằng trình duyệt. Không cần cài thư viện, đăng nhập hoặc API key. Giữ ba file `index.html`, `style.css`, `app.js` cùng thư mục. `../index.html` là mẫu T3 của giảng viên, không phải demo T2.
 
@@ -38,8 +38,19 @@ Không có xác thực hoặc phân quyền máy chủ. Vai TA là điều khi�
 
 Luồng TA là thao tác người phụ trách bổ sung cho prototype, không phải tool mới của AI. Học viên chỉ thấy phản hồi gửi thành công, không thấy ghi chú nội bộ. “Đã xử lý câu hỏi — chờ sửa học liệu” không có nghĩa nguồn đã sửa hoặc FAQ đã đăng; “Chưa kết luận” vẫn tiếp tục kiểm tra.
 
-Trang phụ tóm tắt §4 (không tab): https://hoc-dem-t2-aiproduct.towering-petunia.workers.dev/muc-tu-chu/ — file `muc-tu-chu/index.html`. Trang chính giữ nguyên URL; nội dung trang phụ hiển thị liên tục, không có bộ chuyển tab. Khi xuất bản cần upload cả thư mục `muc-tu-chu` bên cạnh ba file chính.
+Trang phụ tóm tắt §4 (không tab): https://hoc-dem-t2-aiproduct.lightningvn.workers.dev/muc-tu-chu/ — file `muc-tu-chu/index.html`. Trang chính giữ nguyên URL; nội dung trang phụ hiển thị liên tục, không có bộ chuyển tab. Khi xuất bản cần upload cả thư mục `muc-tu-chu` bên cạnh ba file chính.
 
 ## Demo nội bộ đã chạy
 
 [Biên bản, ảnh và cách chạy lại](demo-evidence/README.md) · [Script](demo.cjs). Đã kiểm tra K1/K2 và 5 ca lạ, sửa nhánh đổi hạn bị bắt nhầm thành hỏi hạn; bổ sung phản hồi cụ thể cho ép đăng FAQ và xin xác nhận đúng/sai. Kết quả cuối 18/18 phép kiểm tra đạt. Đây là demo tự động trên mock, không phải demo trước lớp.
+
+## Cập nhật hosting chính thức
+
+Dùng tài khoản Cloudflare của chủ nhóm, từ thư mục `sites/hoc-dem-t2/`:
+
+```sh
+npx wrangler login
+npx wrangler deploy
+```
+
+Cập nhật các file trong `dist/` từ bản prototype đã duyệt trước khi deploy. Không thêm `--temporary`. Thông tin đăng nhập Wrangler nằm ngoài repo; không commit token hoặc cấu hình chứa thông tin xác thực. Push GitHub không tự triển khai: cần chạy lệnh deploy sau khi đổi prototype.

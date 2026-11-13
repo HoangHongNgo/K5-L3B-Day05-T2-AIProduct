@@ -5,8 +5,8 @@
 ## Xem bài nộp
 
 - [Báo cáo thiết kế — spec.md](spec.md): thành viên, 11 kịch bản, UX khi AI sai, mức tự chủ, bằng chứng prototype, tiêu chí Pass/Fail và demo.
-- [Prototype web](https://hoc-dem-t2-aiproduct.towering-petunia.workers.dev) · [Mức tự chủ](https://hoc-dem-t2-aiproduct.towering-petunia.workers.dev/muc-tu-chu/).
-- [Hướng dẫn demo và chạy local](prototype/README.md). Nếu web tạm không truy cập được, tải repo và mở `prototype/index.html` bằng trình duyệt; giữ `app.js` và `style.css` cùng thư mục. Không cần cài thư viện.
+- [Prototype web](https://hoc-dem-t2-aiproduct.lightningvn.workers.dev) · [Mức tự chủ](https://hoc-dem-t2-aiproduct.lightningvn.workers.dev/muc-tu-chu/).
+- [Hướng dẫn demo và chạy local](prototype/README.md). Nếu web không truy cập được, tải repo và mở `prototype/index.html` bằng trình duyệt; giữ `app.js` và `style.css` cùng thư mục. Không cần cài thư viện.
 - [Ảnh học viên](prototype/01-hoc-vien.png) · [Ảnh TA](prototype/02-ta.png): vị trí [1]–[9] đối chiếu với §5.2 trong báo cáo.
 
 ## Thành viên và phần việc
