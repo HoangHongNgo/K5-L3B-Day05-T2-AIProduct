@@ -82,7 +82,7 @@ K11 là biến thể của K2 và dùng cùng rào chặn, nên không chọn th
 **Bốn đường đi cần thấy trong trải nghiệm:**
 
 | Đường đi | Ví dụ gắn §2 | Phản ứng và đường lui |
-|---|---|
+|---|---|---|
 | Bình thường | K10 hỏi bài 2 đã đóng | Dẫn đáp án đã công bố trên trang khoá học, giải thích đầy đủ từng bước; học viên có thể xem nguồn. |
 | Thiếu ngữ cảnh | K5 hỏi “cái độ lệch ấy” | Hỏi đúng một câu phân biệt ý muốn hỏi trước khi tra §3.3; học viên sửa câu hỏi, không bị ép nhận lời giải đoán. |
 | Không đủ căn cứ hoặc nguồn tự mâu thuẫn | K1, hoặc K4 hỏi “slide 12” không tồn tại | Hiện nguồn thực có và giới hạn; với K1 dừng xác nhận/FAQ và chuyển TA, với K4 nói không tìm thấy slide thay vì tạo nguồn giả. |
