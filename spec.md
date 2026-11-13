@@ -133,6 +133,8 @@ Các thẻ nguồn giúp người học tin **đúng mức căn cứ** (PAIR *Ex
 2. **Với FAQ:** soạn nháp nội bộ → kiểm tra điều kiện → TA duyệt đúng bản → gọi `dang_FAQ`. Đây là **bước thiết kế bổ sung**, không phải tuyên bố track đã có tool soạn nháp/duyệt. K1 chỉ được tạo yêu cầu kiểm tra gửi TA, chưa được đưa sang bản có thể bấm đăng cho đến khi nghi vấn được giải quyết. Nếu chưa có cơ chế gắn quyền duyệt với đúng bản nội dung, AI chưa được gọi `dang_FAQ`.
 3. **Thiếu ngữ cảnh thì hỏi trước hành động.** K5 chưa rõ khái niệm thì hỏi một câu; K6 chưa rõ số bài thì không đoán hạn. Chỉ lấy hạn từ dữ liệu B. Không có tool sửa nguồn, đổi hạn hoặc nhắn giảng viên trực tiếp, nên những hành động đó nằm ngoài quyền, không có nút xác nhận để AI thực hiện (K7).
 
+4. **Phản hồi sau chuyển là thao tác của TA.** Bổ sung thiết kế để TA ghi kết luận, căn cứ nội bộ, soạn phản hồi riêng, xem trước đúng bản rồi gửi cho học viên của yêu cầu đã nhận. Đây là thao tác người phụ trách trong prototype, không phải tool AI mới trong track; không cho AI tự đóng yêu cầu hoặc tự sửa học liệu. Gửi thành công chỉ hoàn tất phản hồi câu hỏi, không đồng nghĩa nguồn đã được sửa hay FAQ được phép phát hành.
+
 Các luật này là yêu cầu cần thể hiện ở prototype §5. Chỉ viết “AI sẽ cẩn thận” hoặc thêm câu cảnh báo sau khi gửi không đủ chứng minh K1/K2 đã được chặn.
 
 ### 4.5. Thử mức trên hai ca đắt nhất và một ca bình thường
@@ -161,17 +163,17 @@ Các luật này là yêu cầu cần thể hiện ở prototype §5. Chỉ vi�
 
 **File và công cụ:** [Mở prototype T2](prototype/index.html) · [Hướng dẫn chạy và kiểm tra](prototype/README.md). Đã dựng bằng HTML/CSS/JavaScript, mở file trực tiếp, không backend và không đăng nhập. Giữ nguyên `index.html` mẫu T3 ở thư mục gốc. Toàn bộ câu hỏi, câu trả lời, kết quả tra cứu, chuyển TA và đăng FAQ đều **mock** theo dữ liệu A/B trong `t2-education.md`; **không có lời gọi AI thật**, không có API key. Mốc giờ demo cố định là **22:30 ngày 13/11/2026, giờ Việt Nam**, để thấy bài 3 còn mở nhưng đã ngoài giờ TA. Chuyển vai học viên/TA là điều khiển của bản demo, không phải cơ chế phân quyền thật.
 
-**Tình trạng hiện tại:** đã dựng và bấm kiểm tra hai màn hình học viên/TA trên trình duyệt; ảnh chụp thực tế bên dưới có số [1]–[8]. Đã kiểm tra các nhánh chuyển lỗi/thử lại, K2 xem trước/huỷ/xác nhận gửi, duyệt đúng phiên bản, đăng lỗi/thử lại, sửa câu AI sai và ca nguồn không tồn tại. Kết quả cụ thể ở §5.6. Đây là bằng chứng prototype tương tác, không phải kết quả chạy agent thật.
+**Tình trạng hiện tại:** đã dựng và bấm kiểm tra hai màn hình học viên/TA trên trình duyệt; ảnh chụp thực tế bên dưới có số [1]–[9]. Đã kiểm tra các nhánh chuyển lỗi/thử lại, K2 xem trước/huỷ/xác nhận gửi, duyệt đúng phiên bản, đăng lỗi/thử lại, sửa câu AI sai và ca nguồn không tồn tại. Kết quả cụ thể ở §5.6. Đây là bằng chứng prototype tương tác, không phải kết quả chạy agent thật.
 
 ### 5.2. Hai màn hình và ảnh đánh số
 
-**Màn hình A — học viên, trạng thái K1:**
+**Màn hình A — học viên, K1 sau khi nhận phản hồi TA:**
 
 ![Ảnh 1 — Học viên, ca K1, vị trí 1–5](prototype/01-hoc-vien.png)
 
 Khi chọn K2 trong bộ ca demo, vẫn dùng màn hình A: thay [2] bằng **“Chỉ gợi ý bước đầu”**; [3] hiện thẻ **“Bài 3 · đang mở · hạn 13/11/2026 23:59 — Trang khoá học”**, liên kết §3.2/§3.5 và câu trả lời K2 nguyên văn ở §3. Vị trí [5] có ô **“Hỏi tiếp về cách làm”**, **“Gợi ý chưa giúp”**, **“Xin xác nhận kết quả”**, **“Hỏi TA”**. Bản xem trước câu hỏi TA mở ngay trong màn hình, có ô sửa, nút **“Huỷ”** và **“Xác nhận gửi”**; chưa xác nhận thì không tạo yêu cầu.
 
-**Màn hình B — TA, trạng thái yêu cầu K1 đã chuyển thành công:**
+**Màn hình B — TA, K1 đã ghi kết luận và phản hồi thành công:**
 
 ![Ảnh 2 — Hàng chờ TA và duyệt FAQ, vị trí 6–8](prototype/02-ta.png)
 
@@ -185,6 +187,7 @@ K10 ở [8] là **ca phụ riêng** để thấy mức “cần người duyệt
 | **[4]** | Kết quả chuyển và giờ trả lời tách riêng; lỗi có đường thử lại. | PAIR *Errors + Graceful Failure*. | `chuyen_TA` tự làm theo điều kiện §4.1; chỉ báo thành công khi có kết quả. |
 | **[5]** | Báo sai hoặc nói rõ bước chưa hiểu; xem/sửa/huỷ câu hỏi trước khi gửi TA. | **G9** — sửa dễ dàng. | K2 không tự chuyển khi chưa chọn gửi; phản hồi không mở khoá đáp số. |
 | **[6]–[7]** | TA nhìn được nghi vấn và căn cứ; K1 chưa có đường đăng FAQ. | **G10, G11**, PAIR *Errors + Graceful Failure*. | Tự chuyển nghi vấn; cấm `dang_FAQ` khi chưa đủ điều kiện. |
+| **[9]** | Học viên nhận nguyên văn phản hồi TA đã gửi thành công, thời điểm mô phỏng; ghi chú nội bộ không hiển thị. | **G11, G9**, PAIR *Errors + Graceful Failure*. | Người phụ trách gửi; AI không tự kết luận, sửa học liệu hoặc đăng FAQ. |
 | **[8]** | TA xem toàn văn đúng bản, nguồn, trạng thái bài trước khi duyệt. | **G11**, PAIR *Explainability + Trust*. | `dang_FAQ` cần TA duyệt; học viên không duyệt thay. |
 
 ### 5.3. Bấm gì, thấy gì trong demo bốn phút
@@ -193,8 +196,8 @@ K10 ở [8] là **ca phụ riêng** để thấy mức “cần người duyệt
 |---|---|---|
 | **0:00–0:30** | Mở màn hình A: trang khoá học mặc định K1, đọc §3.3 bên trái và bấm “Gửi câu hỏi” bên phải. Chỉ ra mốc 22:30, hạn bài 23:59 và TA đã hết giờ trực. | Nhận diện AI ở [1]; câu trả lời K1 không xác nhận mệnh đề “luôn nhỏ hơn”, [2] báo “Cần TA kiểm tra”, FAQ chưa đăng. |
 | **0:30–1:15** | Bấm “Xem §3.3”; cho mock chuyển TA trả lỗi, rồi bấm “Thử chuyển lại” để trả thành công. | [3] có đúng câu nguồn và ví dụ tách biệt. [4] lần lượt là “Chưa chuyển — thử lại” rồi “Đã chuyển (mô phỏng)”; không bịa giờ trả lời. Ngoài giờ trực: TA trực lại 08:00, không hứa trả lời ngay lúc đó. |
-| **1:15–2:00** | Bấm “Xem TA nhận được gì”, xem yêu cầu K1; sau đó mở phần thu gọn “Thử duyệt FAQ · ca K10 riêng”. | Chỉ yêu cầu chuyển thành công xuất hiện ở [6]. K1 bị chặn đăng tại [7]. K10 tại [8] có toàn văn, nguồn, trạng thái bài; chỉ TA mới có thao tác duyệt. |
-| **2:00–2:30** | Với K10, sửa nháp, “Lưu bản sửa” → “Duyệt bản này” → “Đăng bản đã duyệt”; mô phỏng đăng thành công. | Sửa tạo bản mới và xoá duyệt cũ; chỉ sau duyệt bản mới và kết quả đăng thành công mới hiện “Đã đăng (mô phỏng)”. Bỏ mặc hoặc từ chối thì vẫn chưa đăng, không tự đăng khi hết giờ. |
+| **1:15–2:00** | Bấm “Xem TA nhận được gì”; chọn kết luận K1, nhập căn cứ và phản hồi, bấm “Xem trước phản hồi” rồi “Gửi phản hồi cho học viên”. Trở về trang học để thấy [9]. | Chỉ yêu cầu chuyển thành công xuất hiện ở [6]. Ghi chú nội bộ không gửi cho học viên; gửi lỗi chưa xuất hiện phản hồi ở [9]. K1 vẫn chưa đăng FAQ tại [7]. |
+| **2:00–2:30** | Mở phần thu gọn K10 tại [8], sửa nháp, “Lưu bản sửa” → “Duyệt bản này” → “Đăng bản đã duyệt”; mô phỏng đăng thành công. | Sửa tạo bản mới và xoá duyệt cũ; chỉ sau duyệt bản mới và kết quả đăng thành công mới hiện “Đã đăng (mô phỏng)”. Bỏ mặc hoặc từ chối thì vẫn chưa đăng, không tự đăng khi hết giờ. |
 | **2:30–3:15** | Bấm “Về trang học” rồi “Tiếp tục: K2 · Bài đang mở”; gửi câu hỏi, thử “Xin xác nhận kết quả”, sau đó “Hỏi TA”, sửa câu hỏi và huỷ. | Chỉ diễn đạt lại bước đầu, không lộ kết quả hoặc nhận xét mẫu. Huỷ không tạo yêu cầu TA. Gửi lại và xác nhận mới kích hoạt chuyển; không hứa TA trả lời kịp 23:59. |
 | **3:15–4:00** | Thử ca lạ hoặc bấm “Báo chỗ sai”. | Thiếu ngữ cảnh thì hỏi một câu; thiếu căn cứ thì dừng phần đó. Báo sai cho xem câu đang phản hồi; nếu xác minh được lỗi, giữ câu cũ có nhãn và thêm đính chính như §3. |
 
@@ -234,9 +237,24 @@ Các kết quả sau được thực hiện với bản mock, không gửi câu 
 | Ca lạ “Slide 12 nói gì?” | **Đạt:** nói tài liệu không có slide đánh số, hỏi mục đang cần và chỉ nêu nguồn §3.2 thực có. |
 | Kiểm tra mã và luật hành động | **Đạt:** `node --check prototype/app.js` và `node prototype/check.cjs`; kiểm tra cả quyền vai, chặn K1, phiên bản duyệt, lỗi chuyển/đăng và tách bản nháp/bản đã đăng. Không có lỗi/cảnh báo trong log trình duyệt ở lượt kiểm tra. |
 
-**Kiểm tra sau chỉnh sửa:** đã bấm lại luồng K1 → K2 trên trang tài liệu, hàng chờ chứa đúng câu nguồn K1 và ngữ cảnh bài mở K2; nhánh xin xác nhận kết quả không cung cấp đáp số. Kiểm tra lại sửa FAQ làm mất duyệt và chỉ đăng đúng bản được duyệt. Ở viewport 390 px không tràn ngang; desktop hiển thị tài liệu và trợ lý cạnh nhau. Ảnh [1]–[8] được chụp lại từ bản chỉnh sửa.
+**Kiểm tra sau chỉnh sửa:** đã bấm lại luồng K1 → K2 trên trang tài liệu, hàng chờ chứa đúng câu nguồn K1 và ngữ cảnh bài mở K2; nhánh xin xác nhận kết quả không cung cấp đáp số. Kiểm tra lại sửa FAQ làm mất duyệt và chỉ đăng đúng bản được duyệt. Ở viewport 390 px không tràn ngang; desktop hiển thị tài liệu và trợ lý cạnh nhau. Ảnh [1]–[9] được chụp lại từ bản chỉnh sửa.
 
 **Đối chiếu M3:** có file prototype bấm qua ca khó K1/K2; có hai màn hình, hai ảnh đánh số; thấy mức **tự làm** (tra cứu/gợi ý/chuyển theo điều kiện), **cần người duyệt** (FAQ K10) và **cấm** (đăng nghi vấn K1, giải hộ K2). G10, G11, G9 đều được gắn vào vị trí cụ thể ở §5.2. Phạm vi chặng 5 đã hoàn thành ở mức prototype dùng dữ liệu dựng; không lấy đó làm cam kết về chất lượng AI thật.
+
+### 5.7. K1 — TA xử lý sau khi nhận yêu cầu
+
+**Luồng bổ sung đã được duyệt:** yêu cầu K1 chuyển thành công → TA kiểm tra câu §3.3 và ví dụ → ghi kết luận/căn cứ → soạn phản hồi → xem trước → gửi riêng → học viên nhận phản hồi. Đây là mở rộng thiết kế do **TA trực tiếp thao tác**, không thêm quyền tự chủ cho AI. Chỉ yêu cầu K1 hoặc ca đính chính nguồn đã thực sự vào hàng chờ mới có phần xử lý này; K2 vẫn giữ giới hạn cũ.
+
+- **Chưa kết luận:** TA chọn “Chưa kết luận — tiếp tục kiểm tra với giảng viên”, ghi phần còn cần kiểm tra và phản hồi cho học viên. Sau gửi thành công, trạng thái là **“Đã phản hồi — tiếp tục kiểm tra”**, không đóng thành đã xử lý. Việc hỏi giảng viên thực hiện qua kênh khoá học, prototype không tuyên bố đã gửi cho giảng viên.
+- **Xác nhận câu nguồn cần sửa:** TA ghi phản chứng 0,25 → 0,5 và nhắc hai đại lượng khác đơn vị. Ví dụ phản hồi: **“TA đã kiểm tra: câu ‘độ lệch chuẩn luôn nhỏ hơn phương sai’ ở §3.3 cần sửa. Em không dùng mệnh đề ‘luôn nhỏ hơn’ làm quy tắc. Tài liệu gốc chưa được sửa, FAQ chưa đăng.”** Sau gửi thành công, trạng thái là **“Đã xử lý câu hỏi — chờ sửa học liệu”**: chỉ hoàn tất phản hồi học viên, còn việc sửa nguồn thuộc người phụ trách.
+- **Xem trước và sửa:** bắt buộc có căn cứ nội bộ và nội dung phản hồi. Bản xem trước chỉ hiển thị kết luận và nội dung sẽ gửi cho đúng học viên, không kèm căn cứ nội bộ. Sửa kết luận, ghi chú hoặc nội dung sau xem trước sẽ huỷ bản xem trước; phải xem lại trước khi gửi. Huỷ xem trước không gửi gì.
+- **Khi gửi:** khoá nút để tránh gửi trùng. Công cụ trình diễn có “Gửi phản hồi TA lỗi”; nếu lỗi, hiện **“Gửi lỗi — học viên chưa nhận bản này”** và học viên chưa có phản hồi mới. Thử lại thành công mới thêm đúng bản vào lịch sử. Nếu đã có phản hồi cũ, vẫn giữ nguyên phản hồi cũ khi bản mới gửi lỗi.
+- **Học viên thấy gì:** [9] có nhãn “Phản hồi từ TA”, nguyên văn nội dung, kết luận và thời điểm mô phỏng; không hiển thị ghi chú nội bộ. Câu trả lời AI ban đầu và tài liệu gốc được giữ để đối chiếu. Nhãn nguồn chuyển thành “TA xác nhận cần sửa học liệu” khi có kết luận đó, hoặc tiếp tục kiểm tra nếu chưa kết luận. FAQ K1 vẫn chưa phát hành; phản hồi riêng không thay cho bước kiểm tra và duyệt phát hành.
+- **Thời gian:** bối cảnh gửi câu hỏi vẫn là 22:30 ngày 13/11. Thao tác TA và thời điểm nhận phản hồi 08:15 ngày 14/11 là lượt mô phỏng kế tiếp, **không phải cam kết TA sẽ trả lời lúc 08:15 hoặc trước hạn bài 3**. Không chạy tác vụ chờ thật hoặc tự gửi sau một khoảng thời gian.
+
+**Quyết định:** chọn phản hồi riêng có xem trước và tách “xử lý câu hỏi” khỏi “sửa học liệu”. Chỉ ghi “TA đã nhận” không giúp học viên biết kết quả; tự chuyển thành “đã sửa nguồn/đã đăng FAQ” vượt quyền và có thể phát tán lỗi. Căn cứ là giới hạn tool trong track và chi phí lan truyền sai ở K1 (§2, §4).
+
+**Kiểm tra:** đã kiểm tra luật bằng `node prototype/check.cjs`: yêu cầu chưa chuyển hoặc vai học viên không được tạo phản hồi; không gửi khi chưa xem trước; sửa làm mất bản xem trước; chặn gửi trùng lúc đang gửi; lỗi/thử lại; chưa kết luận vẫn tiếp tục kiểm tra; phản hồi không mở quyền FAQ. Bấm trên trình duyệt xác nhận huỷ không gửi, sửa nội dung làm mất nút gửi cũ, gửi lỗi chưa có phản hồi học viên, thử thành công mới hiển thị đúng nội dung và giữ riêng ghi chú nội bộ. Hai ảnh đã cập nhật để thể hiện trạng thái sau phản hồi.
 
 ## §6. Tốt là gì  (chặng 6)
 
