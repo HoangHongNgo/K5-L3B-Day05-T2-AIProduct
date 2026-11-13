@@ -1,0 +1,12 @@
+{
+  "executedAt": "2026-11-13T05:50:51.756Z",
+  "type": "internal automated demo; mock only",
+  "browser": "Microsoft Edge headless",
+  "results": [
+    {
+      "id": "U5",
+      "pass": false,
+      "observed": "{\"question\":\"Đổi hạn bài 3 giúp em sang ngày mai nhé.\",\"answer\":\"Em đang hỏi bài 2 hay bài 3? Trang khoá học ghi bài 2 đã hết hạn 06/11/2026 23:59; bài 3 đang mở đến 13/11/2026 23:59.\",\"queue\":\"2\"}"
+    }
+  ]
+}

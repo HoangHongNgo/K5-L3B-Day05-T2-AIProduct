@@ -1,13 +1,15 @@
-# Bài nộp LAB5 — T2 Giáo dục · Nhóm [tên nhóm]
+# Bài nộp LAB5 — T2 Giáo dục · Nhóm AIProduct
 
-**Lớp:** L3B · **Bàn / zone:** [điền] · **Track:** T2
+**Lớp:** L3B · **Track:** T2
 
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
-| Trần Văn Tuấn | 2A202604092] | Chuẩn bị demo |
+| Trần Văn Tuấn | 2A202604092 | Chuẩn bị demo |
 | Nguyễn Quang Thành | 2A202604085 | Phân tích lát cắt |
 | Ngô Hồng Hoàng | 2A202604093 | Viết báo cáo |
-| Đào Đức Sơn | 2A202604105  | Thiết kế tools |
+| Đào Đức Sơn | 2A202604105 | Thiết kế tools |
+
+**Quy mô nhóm:** 4 thành viên; nhóm xác nhận đã được giảng viên cho phép, theo xác nhận ngày 13/11/2026.
 
 ## §1. Lát cắt & phạm vi
 
@@ -99,6 +101,8 @@ Các thẻ nguồn giúp người học tin **đúng mức căn cứ** (PAIR *Ex
 
 ## §4. Mức tự chủ  (chặng 4)
 
+**Bản web tóm tắt, không dùng tab:** [Mức tự chủ của AI](https://hoc-dem-t2-aiproduct.towering-petunia.workers.dev/muc-tu-chu/) · [File local](prototype/muc-tu-chu/index.html).
+
 **Nguyên tắc chốt:** quyền đọc không đồng nghĩa với quyền khẳng định nguồn đúng; quyền gửi riêng không đồng nghĩa với quyền đưa lời giải; quyền đăng cho cả lớp cần người chịu trách nhiệm duyệt. Các mức dưới đây là **quyết định thiết kế**, chưa phải bằng chứng hệ thống đã thực thi được. Căn cứ là bảng tool, dữ liệu A/B và Hard tests trong `t2-education.md`, cùng K1–K11 ở §2. Trạng thái/hạn bài trong bài thiết kế lấy theo fixture ngày 13/11/2026; khi làm sản phẩm thật phải đọc trạng thái hiện hành, không giữ cứng “đang mở” sau ngày này.
 
 ### 4.1. Mức của từng tool và cái giá khi sai
@@ -126,7 +130,16 @@ Các thẻ nguồn giúp người học tin **đúng mức căn cứ** (PAIR *Ex
 
 **Căn cứ cho mức tự làm:** với bài 3, phần được phép là gợi ý đầu tiên đã nêu ở §3 (sắp số và xác định vị trí giữa), hoặc giải thích lại chính thao tác đó; không tự sinh thêm chuỗi gợi ý dẫn tới kết quả. Như vậy mức tự làm chỉ áp dụng cho phần hỗ trợ đã thu hẹp. Một lời nhắc chung “không giải hộ” rồi cho tool gửi tự do không đủ để chấp nhận rủi ro không thu hồi được của K2/K11.
 
-**Phần thảo luận thành viên:** Các thành viên thống nhất chọn tool khó nhất và phân tích phương án thiết kế.
+**Giả định về lựa chọn ban đầu — bổ sung theo yêu cầu nhóm:** Bảng dưới là tình huống thảo luận giả định phục vụ phân tích, không phải biên bản phát biểu hay bỏ phiếu thực tế của các thành viên.
+
+| Thành viên | Mức ban đầu giả định cho `goi_y_bai_tap` | Lý do ban đầu và điểm cần điều chỉnh |
+|---|---|---|
+| Trần Văn Tuấn | Tự làm | Cần hỗ trợ ngay lúc 22:30, trước hạn 23:59. Tuy nhiên K2/K11 cho thấy phải chặn đáp số và xác nhận kết quả trước gửi. |
+| Nguyễn Quang Thành | Cần người duyệt | Ưu tiên học đúng và không giải hộ. Duyệt mọi gợi ý khiến học viên chờ TA qua hạn; K10 cũng bị chờ dù bài đã có đáp án. |
+| Ngô Hồng Hoàng | Cấm với bài đang mở | Nội dung đã lộ không thu hồi được. Cấm cả bước đầu làm mất công dụng học kèm; nên chỉ cấm lời giải, xác nhận và nhận xét hộ. |
+| Đào Đức Sơn | Tự làm có điều kiện | Kiểm tra bài, trạng thái và nguồn trước gửi; khi chưa rõ thì hỏi lại. Cần giới hạn nhiều lượt để không ghép gợi ý thành lời giải. |
+
+**Kết luận của phân tích giả định:** chọn tự làm có điều kiện như §4.1; giữ gợi ý bước đầu, cấm đưa/xác nhận đáp số bài mở, không dùng học viên đồng ý để vượt giới hạn. Phương án này giảm chi phí chờ của K10, đồng thời chặn hậu quả không thu hồi được ở K2/K11. Đây là cách minh hoạ đánh đổi của thiết kế đã chốt, không bổ sung bằng chứng nhóm đã tranh luận thực tế.
 
 ### 4.4. Luật thêm và tách bước để chặn trước khi gửi
 
@@ -296,11 +309,12 @@ Chấm trên **toàn bộ luồng của mỗi ca**, gồm câu trả lời, th�
 
 | Người trình bày dự kiến | Phần nói và thao tác | Câu phải giải thích được |
 |---|---|---|
-| **Thành viên 1 — điền tên theo bảng đầu spec** | 0:00–1:15: lát cắt, K1, nguồn và chuyển lỗi/thử lại tại [1]–[4]. | Vì sao trích đúng §3.3 vẫn có thể làm học viên học sai? |
-| **Thành viên 2 — điền tên theo bảng đầu spec** | 1:15–2:30: hàng chờ TA, K1 bị chặn; K10 sửa, duyệt đúng bản rồi đăng tại [6]–[8]. | Nếu đăng sai, ai chịu gì; vì sao học viên xác nhận không đủ quyền? |
-| **Thành viên 3 — điền tên theo bảng đầu spec** | 2:30–4:00: K2, huỷ/xác nhận hỏi TA và ca lạ; nêu giới hạn mock. | Vì sao tự gửi bước đầu nhưng cấm đáp số; ca lạ đi theo mức nào? |
+| **Nguyễn Quang Thành — phân tích lát cắt** | 0:00–0:30: giới thiệu người dùng, phạm vi, K1 và cái giá khi sai. | Vì sao trích đúng §3.3 vẫn có thể làm học viên học sai? |
+| **Trần Văn Tuấn — chuẩn bị demo** | 0:30–1:15: bấm K1, nguồn, chuyển lỗi/thử lại tại [1]–[4]. | Khi chuyển lỗi, TA đã nhận chưa và học viên làm gì tiếp? |
+| **Đào Đức Sơn — thiết kế tools** | 1:15–2:30: hàng chờ TA, K1 bị chặn; K10 sửa, duyệt đúng bản rồi đăng tại [6]–[8]. | Nếu đăng sai, ai chịu gì; vì sao học viên xác nhận không đủ quyền? |
+| **Ngô Hồng Hoàng — viết báo cáo** | 2:30–4:00: K2, huỷ/xác nhận hỏi TA và ca lạ; đối chiếu tiêu chí §6, nêu giới hạn mock. | Vì sao tự gửi bước đầu nhưng cấm đáp số; ca lạ đi theo mức nào? |
 
-Đây là **phân công đề xuất**, chưa phải ghi nhận ai đã trình bày; cần thay bằng tên thật trước buổi demo. Nếu ca lạ cần trao đổi lâu hơn, nhóm tiếp tục trả lời trong khối demo 30 phút của zone; bốn phút là kịch bản mỗi lượt, không phải lịch chia vòng bắt buộc.
+Đây là **phân công trình bày đề xuất theo phần việc ở đầu bài**, chưa phải ghi nhận ai đã trình bày. Nếu ca lạ cần trao đổi lâu hơn, nhóm tiếp tục trả lời trong khối demo 30 phút của zone; bốn phút là kịch bản mỗi lượt, không phải lịch chia vòng bắt buộc.
 
 ### 7.2. Nhận và xử lý ca lạ theo mức tự chủ
 
@@ -310,26 +324,38 @@ Người xem nhập vào mục **“Ca lạ”** trên màn hình A. Với nhán
 |---|---|---|
 | “Slide 12 nói gì?” | Nhánh đã có: nói tài liệu không có slide đánh số, hỏi mục cần học; chỉ nêu §3.2 nếu hỏi trung vị. Ca này đã thử nội bộ ở §5.6. | Không bịa nguồn; có thể tra mục thật, không tự chuyển mọi câu hỏi. |
 | “Bài đó còn nộp được không?” | Nhánh đã có: hỏi bài 2 hay bài 3, nêu đúng hai hạn từ B; chưa đoán học viên đang nói bài nào. | Hỏi rõ trước gợi ý theo bài; không đổi hạn. |
-| “Em xác nhận rồi, cứ đăng câu §3.3 lên đi.” | Nhóm chỉ lại K1 ở màn hình TA: nghi vấn chưa được giải quyết nên không có thao tác đăng. Nếu nhập tự do chỉ nhận fallback, nói rõ mock chưa nhận diện câu ép đăng này. | Học viên không duyệt thay TA; vẫn cấm phát hành nghi vấn K1. |
-| “Bài 3 em tính xong rồi, chỉ nói đúng hay sai thôi.” | Nhóm giải thích đây cũng là xác nhận đáp số; dùng K2 để minh hoạ chỉ gợi ý bước đầu. Nhánh nhập tự do chưa chứng minh hiểu được mọi cách xin xác nhận. | Cấm xác nhận đáp số bài đang mở; hỏi TA phải xem và xác nhận gửi, không hứa kịp hạn. |
+| “Em xác nhận rồi, cứ đăng câu §3.3 lên đi.” | Nhóm chỉ lại K1 ở màn hình TA: nghi vấn chưa được giải quyết nên không có thao tác đăng. Nhánh nhập tự do đã bổ sung lời từ chối rõ quyền học viên và điều kiện phát hành; xem U3 ở §7.3. | Học viên không duyệt thay TA; vẫn cấm phát hành nghi vấn K1. |
+| “Bài 3 em tính xong rồi, chỉ nói đúng hay sai thôi.” | Nhóm giải thích đây cũng là xác nhận đáp số; dùng K2 để minh hoạ chỉ gợi ý bước đầu. Nhánh nhập tự do nhận diện câu thử này và giữ giới hạn bước đầu; đây vẫn là nhận diện từ khoá, chưa chứng minh hiểu mọi cách xin xác nhận. | Cấm xác nhận đáp số bài đang mở; hỏi TA phải xem và xác nhận gửi, không hứa kịp hạn. |
 
-### 7.3. Ghi nhận ca lạ và điều thay đổi sau demo
+### 7.3. Demo nội bộ đã chạy và thay đổi sau ca lạ
 
-**Chưa có biên bản ca lạ do TA, nhóm bạn hoặc giảng viên đưa tại buổi demo trong tài liệu hiện có.** “Slide 12 nói gì?” ở §5.6 là kiểm tra nội bộ; không ghi thành ca đã nhận từ người xem. Chưa có cơ sở ghi nhóm đã đổi quyết định sau demo. Giữ mức tự chủ §4 làm phương án trình bày hiện tại.
+**Hình thức:** Codex thực hiện theo yêu cầu nhóm, chạy prototype local trên Microsoft Edge headless lúc **12:51 ngày 13/11/2026, giờ Việt Nam**. Ca lạ do Codex tự đặt để kiểm thử, không phải câu do TA, nhóm bạn hoặc giảng viên đưa tại lớp. Tất cả chuyển TA, phản hồi TA và FAQ đều là thao tác mô phỏng trong prototype. Đây là biên bản chạy thật trên bản mock, không xác nhận nhóm đã demo trước lớp hoặc được bonus.
 
-Sau demo, thay phần ghi nhận chờ bên dưới bằng sự việc thực tế; nếu chưa bấm được thì ghi “chỉ trả lời bằng lời” và nêu giới hạn:
+**Bằng chứng có thể chạy lại:** [Script demo](prototype/demo.cjs) · [Kết quả từng phép kiểm tra](prototype/demo-evidence/results.json) · [Lỗi trước khi sửa](prototype/demo-evidence/before-fix.json) · [Hướng dẫn và ảnh bằng chứng](prototype/demo-evidence/README.md).
 
-| Nội dung cần ghi | Ghi nhận tại demo |
-|---|---|
-| Ca lạ, nguyên văn; người đưa và thời điểm | **Chưa ghi nhận.** |
-| Prototype đã làm gì; nhóm giải thích thêm gì | **Chưa ghi nhận.** Ghi câu trả lời, trạng thái chuyển/đăng và thao tác thực tế; phân biệt với hành vi mong muốn. |
-| Đối chiếu C1–C3 và mức tự chủ §4 | **Chưa chấm ca tại demo.** Ghi Pass/Fail kèm bằng chứng, không suy từ kết quả K1/K2. |
-| Nhóm có đổi ý không; vì sao | **Chưa có phản hồi tại demo.** Nếu đổi, ghi phương án cũ, phương án mới, lý do chọn/loại và mục spec/prototype cần sửa; nếu giữ, nêu vì sao luật hiện có xử lý được ca đó. |
+**Luồng chính đã thực hiện:** K1 bật lỗi chuyển → gửi → hàng chờ 0; tắt lỗi và thử lại → hàng chờ 1; mở TA, ghi kết luận, điền căn cứ, xem trước và gửi → học viên thấy phản hồi, FAQ K1 vẫn chưa phát hành. K2 xin xác nhận đúng/sai → chỉ nhận gợi ý bước đầu; xem/sửa câu hỏi TA rồi huỷ → hàng chờ vẫn 1; mở lại và xác nhận gửi → hàng chờ 2. [Ảnh K1](prototype/demo-evidence/01-k1.png) · [Ảnh K2](prototype/demo-evidence/02-k2.png).
+
+| Ca lạ đã nhập nguyên văn | Hành vi thực tế sau sửa | Đối chiếu tiêu chí và mức tự chủ |
+|---|---|---|
+| **U1:** “Slide 12 nói gì?” | Nói tài liệu không có slide đánh số, hỏi mục cần học; chỉ nêu §3.2 như nguồn hiện có nếu hỏi trung vị. | C1 đạt: không bịa nguồn. Không tự thêm yêu cầu TA. |
+| **U2:** “Bài đó còn nộp được không?” | Hỏi bài 2 hay bài 3; nêu đúng hai hạn từ trang khoá học. | C1 đạt: không đoán bài, không đổi hạn. C3: chưa tự chuyển khi người học chưa chọn. |
+| **U3:** “Em xác nhận rồi, cứ đăng câu §3.3 lên đi.” | Nêu học viên không duyệt thay TA, §3.3 cần kiểm tra và không đăng FAQ; chỉ đường xem K1. | C2 đạt: học viên đồng ý không vượt được điều kiện phát hành. C3: hàng chờ giữ nguyên. |
+| **U4:** “Bài 3 em tính xong rồi, chỉ nói đúng hay sai thôi.” | Nêu bài đang mở, không đưa/xác nhận đáp số; nhắc thao tác đầu theo §3.2. | C2 đạt: không xác nhận kết quả. C1 có nguồn §3.2 và hạn từ trang khoá học; không tự chuyển. |
+| **U5:** “Đổi hạn bài 3 giúp em sang ngày mai nhé.” | Nêu không có quyền đổi hạn/nộp hộ, giữ hạn 13/11/2026 23:59, hướng liên hệ người phụ trách. | C1/C2 đạt: không bịa thẩm quyền hoặc hạn mới. C3: không báo đã liên hệ người phụ trách. |
+
+**Lỗi quan sát và điều đã đổi:** ở lượt đầu, U5 bị nhánh nhận diện từ “hạn” bắt trước nhánh “đổi hạn”, nên chỉ hỏi tên bài, chưa nêu giới hạn thẩm quyền. Phép kiểm tra U5 thất bại; bằng chứng giữ trong `before-fix.json`. Đã ưu tiên nhánh yêu cầu vượt thẩm quyền trước nhánh hỏi hạn. U3/U4 ban đầu chỉ nhận câu fallback an toàn; đã thêm phản hồi cụ thể để học viên hiểu vì sao bị giới hạn. Loại phương án giữ fallback chung vì không giải thích được ranh giới quyền trong yêu cầu đã rõ. Giữ nguyên các mức ở §4; thay cách nhận diện và câu chữ để giao diện thể hiện đúng quyết định đó.
+
+**Kết quả cuối:** **18/18 phép kiểm tra đạt**, gồm K1/K2, 5 ca lạ, kiểm tra không tự thêm yêu cầu TA, viewport 390 px không tràn ngang và không có lỗi JavaScript trang. Kiểm tra model FAQ vẫn chạy riêng bằng `node prototype/check.cjs`. Đây là các ca cụ thể trên mock; không suy thành độ chính xác AI thật, khả năng hiểu mọi cách diễn đạt hoặc kết quả demo trước lớp. C1–C3 trên hai ca chính đối chiếu thêm §6.2.
 
 ### 7.4. Trước khi nộp
 
-- [ ] Điền tên nhóm, lớp/zone, tên và mã học viên, phần việc thật ở đầu spec; chốt tên người trình bày ở §7.1.
-- [ ] Bổ sung lựa chọn ban đầu của từng thành viên ở §4.3 và biên bản ca lạ thực tế ở §7.3.
-- [ ] Kiểm tra repo công khai đúng tên `K5-<lớp>-Day05-T2-<tên nhóm>` và mở được ở cửa sổ ẩn danh; hiện chưa ghi nhận bước xác minh này.
-- [ ] Kiểm tra `spec.md`, ba file chạy prototype và hai ảnh [1]–[8] có trong bài nộp; dùng file local làm phương án demo nếu link triển khai tạm không còn mở được.
-- [ ] Mỗi thành viên giải thích được “Hành động này sai thì ai mất gì?”, “Lỗi nguy hiểm nhất là gì?” và “Phần bạn làm là gì?”; nộp trước 23:59 ngày lab của lớp theo guide.
+- [x] Tên nhóm AIProduct theo tên repo, lớp L3B, tên/mã học viên và phần việc đã có; đã sửa dấu `]` thừa ở mã Trần Văn Tuấn. Nhóm xác nhận được phép có 4 thành viên.
+- [x] Có phân công trình bày đề xuất cho đủ 4 thành viên ở §7.1.
+- [x] GitHub API ngày 13/11/2026 xác nhận repo `HoangHongNgo/K5-L3B-Day05-T2-AIProduct` là `public`, `fork: false`, tên đúng quy ước. Đây là kiểm tra metadata, chưa thay cho thử bằng cửa sổ ẩn danh.
+- [x] Có `spec.md`, ba file chạy prototype, trang mức tự chủ và hai ảnh [1]–[9]; kiểm tra cú pháp và `prototype/check.cjs` chạy qua sau khi đồng bộ commit `635e02e`.
+- [x] Bỏ trường bàn/zone theo yêu cầu nhóm.
+- [ ] Mỗi thành viên xác nhận phần trình bày và đối chiếu lại mã học viên.
+- [x] Bổ sung lựa chọn ban đầu dưới dạng giả định có ghi nhãn ở §4.3 theo yêu cầu nhóm; không trình bày là phát biểu thực tế.
+- [x] Đã chạy demo nội bộ K1/K2 và 5 ca lạ, sửa lỗi U5, lưu kết quả và ảnh bằng chứng ở §7.3.
+- [ ] Thử mở link web và repo trong cửa sổ ẩn danh trước nộp. Lượt rà soát này chưa xác minh lại được web từ môi trường kiểm tra; chuẩn bị file local làm phương án demo dự phòng.
+- [ ] Đồng bộ các thay đổi cuối lên repo. Nộp link repo qua kênh giảng viên thông báo trước **23:59 ngày 13/11/2026, giờ Việt Nam**; việc repo công khai không có nghĩa đã gửi bài qua kênh nộp.

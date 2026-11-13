@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>§4 · Mức tự chủ của AI — T2 Giáo dục</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f6f0;color:#173b36;font:15px/1.65 'Segoe UI',Arial,sans-serif}main{max-width:1000px;margin:auto;padding:34px 24px 44px}a{color:#246758;text-underline-offset:4px}a:focus-visible{outline:3px solid #d59b3b;outline-offset:4px}.top{display:flex;justify-content:space-between;gap:16px;font-size:12px;margin-bottom:28px}.eyebrow{font-size:12px;letter-spacing:1.8px;text-transform:uppercase;color:#62736e}h1{font-size:36px;line-height:1.2;letter-spacing:-1px;margin:10px 0 14px}h2{font-size:20px;margin:26px 0 12px}h3{font-size:17px;margin:8px 0 3px}p{margin:7px 0 12px}.intro{max-width:750px;font-size:17px;color:#4f655c}.legend{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}.badge{display:inline-block;font-size:12px;font-weight:600;padding:4px 10px;border-radius:6px;background:#e4f0e6;color:#246348}.review{background:#fcf0d7;color:#80591b}.ban{background:#f9e7e2;color:#914b3b}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.card{border:1px solid #d6e1d9;border-radius:12px;padding:20px;background:#fff}.tool{font:12px Consolas,monospace;color:#62736e}.cost{font-size:13px;color:#62736e;border-top:1px solid #e2e8df;padding-top:10px;margin-bottom:0}.flow{border-left:4px solid #246758;background:#e9f0e4;padding:17px 21px;border-radius:0 10px 10px 0}.flow strong{display:block;margin-bottom:4px}.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.cases .card{padding:17px}.cases h3{font-size:15px}.cases p{font-size:13px}.caption{font-size:12px;color:#62736e}footer{margin-top:27px;padding-top:15px;border-top:1px solid #d6e1d9;font-size:12px;color:#62736e}strong{font-weight:650}.hard{padding:15px 0}.hard p{margin:0}.rule{font-size:14px}@media(max-width:650px){main{padding:24px 16px}h1{font-size:29px}.grid,.cases{grid-template-columns:1fr}.intro{font-size:15px}.top{flex-wrap:wrap;margin-bottom:22px}.card{padding:17px}}@media print{body{background:white}main{padding:0;max-width:none;font-size:12px}.top a{display:none}.card,.flow{break-inside:avoid}h1{font-size:27px}h2{margin-top:15px}.card{padding:13px}.cost{font-size:11px}.cases p{font-size:11px}}
+</style>
+</head>
+<body><main>
+<div class="top"><span>LAB5 · T2 GIÁO DỤC</span><a href="../index.html">Mở prototype học bài ↗</a></div>
+<div class="eyebrow">§4 · Mức tự chủ</div>
+<h1>AI được tự làm đến đâu?</h1>
+<p class="intro">Giúp học viên học tiếp lúc tối muộn, giữ giới hạn bài đang mở và đưa quyết định phát hành cho người chịu trách nhiệm.</p>
+<div class="legend" aria-label="Ba mức tự chủ"><span class="badge">Tự làm · trong giới hạn</span><span class="badge review">Cần TA duyệt · trước phát hành</span><span class="badge ban">Cấm · vượt quyền hoặc gây hại</span></div>
+
+<div class="grid">
+<article class="card"><span class="badge">Tự làm</span><h3>Tra cứu tài liệu</h3><div class="tool">tra_cuu_tai_lieu</div><p>Chỉ tra tài liệu đã mở và dẫn đúng mã mục. Thiếu nguồn thì nói rõ; có nguồn vẫn phải kiểm tra nội dung.</p><p class="cost"><strong>Cái giá khi sai:</strong> học viên hiểu sai. Cho TA duyệt mỗi lần đọc gây chờ, nhưng không giải quyết được nguồn sai như §3.3.</p></article>
+<article class="card"><span class="badge">Tự làm có giới hạn</span><h3>Gợi ý bài tập</h3><div class="tool">goi_y_bai_tap</div><p>Bài đang mở: chỉ gợi ý bước đầu. Bài đã đóng <strong>và đã công bố đáp án</strong>: được giải thích đầy đủ. Chưa rõ bài hoặc trạng thái thì hỏi lại.</p><p class="cost"><strong>Cấm:</strong> đưa/xác nhận đáp số, viết nhận xét hộ bài mở hoặc ghép nhiều gợi ý thành lời giải. Đã đọc không thu hồi được; chờ TA mọi gợi ý có thể làm lỡ hạn.</p></article>
+<article class="card"><span class="badge">Tự làm theo điều kiện</span><h3>Chuyển câu hỏi cho TA</h3><div class="tool">chuyen_TA</div><p>Nghi vấn nguồn hoặc sự cố AI gửi sai: tự chuyển. Câu hỏi thường: học viên xem, sửa và xác nhận bản gửi trước.</p><p class="cost"><strong>Đánh đổi:</strong> chuyển nhầm tốn công TA, nhưng bỏ sót K1 có thể khiến học viên tiếp tục học sai. Chỉ chuyển phần cần thiết; không chuyển cả hội thoại mặc định.</p></article>
+<article class="card"><span class="badge review">Cần TA phụ trách duyệt</span><h3>Đăng FAQ cho cả lớp</h3><div class="tool">dang_FAQ</div><p>TA xem toàn văn, nguồn và trạng thái bài; duyệt đúng phiên bản rồi mới đăng. Sửa nội dung phải duyệt lại.</p><p class="cost"><strong>Cấm đăng:</strong> nguồn còn nghi sai hoặc lời giải bài đang mở, kể cả học viên đồng ý. Gỡ bài không thu hồi được điều cả lớp đã đọc.</p></article>
+</div>
+
+<h2>Duyệt đúng bản, không tự đăng khi hết giờ</h2>
+<div class="flow"><strong>Soạn nháp → kiểm tra điều kiện → TA duyệt đúng bản → đăng</strong><p>TA thấy câu hỏi đã bỏ thông tin nhận diện không cần thiết, toàn văn phản hồi, đoạn nguồn, trạng thái bài và cảnh báo. Chưa duyệt hoặc từ chối: <strong>“Chưa đăng”</strong>. Chờ lâu không tự chuyển thành đã duyệt.</p><p class="rule">Chuyển TA thành công mới hiện “Đã chuyển”; lỗi hiện “Chưa chuyển — thử lại”. Giờ trực 08:00–22:00 không phải lời hẹn trả lời, cũng không bảo đảm kịp hạn 23:59.</p></div>
+
+<div class="hard"><h2>Khó chốt nhất: gợi ý bài tập</h2><p>Gợi ý quá tay làm lộ lời giải; chờ TA mọi lần lại khiến học viên tối muộn mất cơ hội làm bài. Chốt: <strong>giúp ngay ở bước đầu hợp lệ</strong>, hỏi lại khi thiếu ngữ cảnh, dừng phần vượt giới hạn. “Gợi ý chưa giúp” chỉ diễn đạt lại bước đầu.</p></div>
+
+<h2>Thử quyết định trên ba tình huống</h2>
+<div class="cases">
+<article class="card"><span class="badge ban">K1 · Tài liệu sai</span><h3>Không khuếch đại lỗi</h3><p>Chỉ rõ câu §3.3 cần kiểm tra, tự chuyển nghi vấn, chặn FAQ. TA ghi kết luận và phản hồi riêng; việc sửa nguồn thuộc người phụ trách.</p></article>
+<article class="card"><span class="badge">K2 · Bài đang mở</span><h3>Giúp học, không giải hộ</h3><p>Gợi ý sắp số và tìm vị trí giữa, dẫn §3.2/§3.5. Không đưa hay xác nhận đáp số; không tự báo TA chỉ vì học viên xin lời giải.</p></article>
+<article class="card"><span class="badge">K10 · Đáp án đã công bố</span><h3>Không bắt chờ vô ích</h3><p>Bài 2 đã đóng, đáp án công bố: giải thích ngay tổng 30 chia 5 được 6. Giải thích riêng không đồng nghĩa tự đăng FAQ.</p></article>
+</div>
+
+<h2>Giới hạn giữ xuyên suốt</h2>
+<p class="rule">Tách soạn khỏi gửi. Áp giới hạn cho cả chat lẫn tool. TA phản hồi có xem trước là thao tác của người phụ trách, không thêm quyền cho AI; phản hồi xong chưa đồng nghĩa học liệu đã sửa. AI không sửa nguồn, đổi hạn, nộp hộ hoặc liên hệ giảng viên trực tiếp.</p>
+<div class="flow"><strong>Lời hứa với học viên</strong>“Mình giúp em bắt đầu ngay; với bài đang mở, mình không đưa hay xác nhận đáp số. FAQ chỉ đăng sau khi đủ căn cứ và TA duyệt đúng bản.”</div>
+<footer>Bản tóm tắt §4 trong spec.md · Dữ liệu dựng ngày 13/11/2026 · Lập luận thiết kế, chưa phải bằng chứng AI thật thực thi. Phần lựa chọn ban đầu của từng thành viên chưa có dữ liệu để ghi nhận.</footer>
+</main></body></html>
